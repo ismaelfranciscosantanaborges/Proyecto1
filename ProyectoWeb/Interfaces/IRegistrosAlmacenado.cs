@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWeb.Models
 {
-    interface IRegistosAlmacenado
+    public interface IRegistosAlmacenado
     {
         BaseUser dameDatos(int id);
     }
