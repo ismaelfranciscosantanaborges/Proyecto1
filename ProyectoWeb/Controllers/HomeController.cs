@@ -13,7 +13,7 @@ namespace ProyectoWeb.Controllers
         // GET: /<controller>/
         public JsonResult Index()
         {
-            return Json(new {id =35, nombre= "Luis" });
+            return Json(new {id =35, nombre= "Luis" } );
         }
     }
 }
