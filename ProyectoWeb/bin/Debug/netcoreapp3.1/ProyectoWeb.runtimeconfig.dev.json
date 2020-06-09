@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Ekipo\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Ekipo\\.nuget\\packages"
+      "/Users/ismaelsanatana/.dotnet/store/|arch|/|tfm|",
+      "/Users/ismaelsanatana/.nuget/packages"
     ]
   }
 }

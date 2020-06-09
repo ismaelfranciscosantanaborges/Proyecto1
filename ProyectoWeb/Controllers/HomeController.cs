@@ -17,9 +17,14 @@ namespace ProyectoWeb.Controllers
             _registrosAlmacenado = registosAlmacenado;
         }
 
-        public string Index()
+        public ViewResult Index()
         {
-            return _registrosAlmacenado.dameDatos(2).Correo;
+            return View();
+            //return View("~/MisVistas/Index.cshtml");
+        }
+
+        public ViewResult Details(){
+            return View();
         }
     }
 }
