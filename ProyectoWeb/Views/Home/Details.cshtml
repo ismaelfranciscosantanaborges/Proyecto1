@@ -1,4 +1,4 @@
-@model ProyectoWeb.Models.BaseUser
+@model ProyectoWeb.ViewModel.DetallesView
 
 <!DOCTYPE html>
 <html>
@@ -11,37 +11,37 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <h2>Aqui se mostrara los detalles del Usuario, con sus aptitudes</h2>
+    <h2>@Model.Titulo</h2>
 
     <div>
-        <b>Id:</b> @Model.Id
+        <b>Id:</b> @Model.Usuario.Id
     </div>
     <div>
-        <b>Nombre:</b> @Model.Nombre
+        <b>Nombre:</b> @Model.Usuario.Nombre
     </div>
         <div>
-        <b>Apellido:</b> @Model.Apellido
+        <b>Apellido:</b> @Model.Usuario.Apellido
     </div>
     <div>
-        <b>Usuario:</b> @Model.UsuarioNombre
+        <b>Usuario:</b> @Model.Usuario.UsuarioNombre
     </div>
     <div>
-        <b>Contraseña:</b> @Model.UsuarioContra
+        <b>Contraseña:</b> @Model.Usuario.UsuarioContra
     </div>
     <div>
-        <b>Correo:</b> @Model.Correo
+        <b>Correo:</b> @Model.Usuario.Correo
     </div>
     <div>
-        <b>Tipo de Usuario:</b> @Model.TipoUsuario
+        <b>Tipo de Usuario:</b> @Model.Usuario.TipoUsuario
     </div>
     <div>
-        <b>Telefono:</b> @Model.Telefono
+        <b>Telefono:</b> @Model.Usuario.Telefono
     </div>
     <div>
-        <b>Imagen:</b> @Model.Imagen
+        <b>Imagen:</b> @Model.Usuario.Imagen
     </div>
     <div>
-        <b>Aptitudes:</b> (@Model.Aptitudes.Length == 0) ? Aun no ha agregado actitudes  : @Model.Aptitudes
+        <b>Aptitudes:</b> @Model.Usuario.Aptitudes
     </div>
 </body>
 </html>

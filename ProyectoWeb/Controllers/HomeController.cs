@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
+using ProyectoWeb.ViewModel;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,8 +28,10 @@ namespace ProyectoWeb.Controllers
         public ViewResult Details()
         {
             MockRegistrosRepositorio listaUsuario = new MockRegistrosRepositorio();
-            var usuario = listaUsuario.dameDatos(1);
-            return View(usuario);
+            DetallesView detalles = new DetallesView();
+            detalles.Usuario = listaUsuario.dameDatos(1);
+            detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
+            return View(detalles);
         }
     }
 }
