@@ -14,22 +14,26 @@ namespace ProyectoWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IRegistosAlmacenado _registrosAlmacenado;
+        private MockRegistrosRepositorio _listaUsuario;
         public HomeController(IRegistosAlmacenado registosAlmacenado)
         {
             _registrosAlmacenado = registosAlmacenado;
+
+            _listaUsuario = new MockRegistrosRepositorio();
         }
 
         public ViewResult Index()
         {
-            return View();
+            var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
+            return View(listaUsuario);
             //return View("~/MisVistas/Index.cshtml");
         }
 
         public ViewResult Details()
         {
-            MockRegistrosRepositorio listaUsuario = new MockRegistrosRepositorio();
+            
             DetallesView detalles = new DetallesView();
-            detalles.Usuario = listaUsuario.dameDatos(1);
+            detalles.Usuario = _listaUsuario.dameDetallesUsuario(1);
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
             return View(detalles);
         }

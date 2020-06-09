@@ -83,9 +83,14 @@ namespace ProyectoWeb.Mocks
             });
 
         }
-        public BaseUser dameDatos(int id)
+        public BaseUser dameDetallesUsuario(int id)
         {
             return listaRegistro.FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<BaseUser> dameTodosLosUsuarios()
+        {
+            return listaRegistro;
         }
     }
 }

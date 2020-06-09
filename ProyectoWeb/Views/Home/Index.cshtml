@@ -1,3 +1,4 @@
+@model List<ProyectoWeb.Models.BaseUser>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,5 +11,45 @@
 </head>
 <body>
     <h2>Estamos en la Pagina donde se mostrara todos los trabajos disponible para postularse</h2>
+
+    @{
+        foreach (var Usuario in Model)
+        {
+            <div style="margin=30px">
+                <div>
+                    <b>Id:</b> @Usuario.Id
+                </div>
+                <div>
+                    <b>Nombre:</b> @Usuario.Nombre
+                </div>
+                <div>
+                    <b>Apellido:</b> @Usuario.Apellido
+                </div>
+                <div>
+                    <b>Usuario:</b> @Usuario.UsuarioNombre
+                </div>
+                <div>
+                    <b>Contraseña:</b> @Usuario.UsuarioContra
+                </div>
+                <div>
+                    <b>Correo:</b> @Usuario.Correo
+                </div>
+                <div>
+                    <b>Tipo de Usuario:</b> @Usuario.TipoUsuario
+                </div>
+                <div>
+                    <b>Telefono:</b> @Usuario.Telefono
+                </div>
+                <div>
+                    <b>Imagen:</b> @Usuario.Imagen
+                </div>
+                <div>
+                    <b>Aptitudes:</b> @Usuario.Aptitudes
+                </div>
+                <hr>
+            </div>
+        }
+    }
+
 </body>
 </html>

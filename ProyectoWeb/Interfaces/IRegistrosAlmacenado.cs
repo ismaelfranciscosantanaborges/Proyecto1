@@ -7,6 +7,7 @@ namespace ProyectoWeb.Models
 {
     public interface IRegistosAlmacenado
     {
-        BaseUser dameDatos(int id);
+        BaseUser dameDetallesUsuario(int id);
+        List<BaseUser> dameTodosLosUsuarios();
     }
 }
