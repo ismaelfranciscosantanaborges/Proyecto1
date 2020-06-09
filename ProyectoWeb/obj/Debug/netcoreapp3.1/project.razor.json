@@ -20526,6 +20526,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/Home/_ViewStart.cshtml",
+      "TargetPath": "Views\\Home\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
