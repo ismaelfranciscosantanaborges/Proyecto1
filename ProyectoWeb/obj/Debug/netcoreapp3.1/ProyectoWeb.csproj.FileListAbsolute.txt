@@ -49,3 +49,4 @@ C:/Users/Ekipo/Desktop/ASP.NET core/ProyectoWeb/ProyectoWeb/obj/Debug/netcoreapp
 /Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/obj/Debug/netcoreapp3.1/ProyectoWeb.Views.pdb
 /Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/obj/Debug/netcoreapp3.1/ProyectoWeb.csproj.CopyComplete
 /Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs

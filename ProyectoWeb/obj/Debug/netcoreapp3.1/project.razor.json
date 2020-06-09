@@ -20521,6 +20521,11 @@
   "RootNamespace": "ProyectoWeb",
   "Documents": [
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/Proyecto1/ProyectoWeb/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

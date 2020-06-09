@@ -1,18 +1,11 @@
 @model ProyectoWeb.ViewModel.DetallesView
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <h2>@Model.Titulo</h2>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Details";
+}
 
+    <h2>@Model.Titulo</h2>
     <div>
         <b>Id:</b> @Model.Usuario.Id
     </div>
@@ -43,5 +36,7 @@
     <div>
         <b>Aptitudes:</b> @Model.Usuario.Aptitudes
     </div>
-</body>
-</html>
+@section Scripts
+{
+    <script src="~/js/MiScript.js"></script>
+}
