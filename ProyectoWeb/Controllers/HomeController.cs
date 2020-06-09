@@ -22,13 +22,16 @@ namespace ProyectoWeb.Controllers
             _listaUsuario = new MockRegistrosRepositorio();
         }
 
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
         public ViewResult Index()
         {
             var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
             return View(listaUsuario);
             //return View("~/MisVistas/Index.cshtml");
         }
-
+        [Route("Home/Details/{id}")]
         public ViewResult Details()
         {
             
