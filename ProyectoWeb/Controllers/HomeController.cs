@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -23,8 +24,11 @@ namespace ProyectoWeb.Controllers
             //return View("~/MisVistas/Index.cshtml");
         }
 
-        public ViewResult Details(){
-            return View();
+        public ViewResult Details()
+        {
+            MockRegistrosRepositorio listaUsuario = new MockRegistrosRepositorio();
+            var usuario = listaUsuario.dameDatos(1);
+            return View(usuario);
         }
     }
 }

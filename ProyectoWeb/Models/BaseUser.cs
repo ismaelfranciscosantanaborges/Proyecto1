@@ -17,5 +17,6 @@ namespace ProyectoWeb.Models
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string Imagen { get; set; }
+        public string Aptitudes { get; set; }
     }
 }

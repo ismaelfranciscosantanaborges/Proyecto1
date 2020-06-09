@@ -23,7 +23,8 @@ namespace ProyectoWeb.Mocks
                     Imagen = "https://imagen/23.png",
                     Telefono = "829-535-7464",
                     UsuarioContra = "123456",
-                    UsuarioNombre = "samuelElFinalll"
+                    UsuarioNombre = "samuelElFinalll",
+                    Aptitudes = ""
                 });
             listaRegistro.Add(new Poster
                 {

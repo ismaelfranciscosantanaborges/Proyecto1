@@ -1,3 +1,5 @@
+@model ProyectoWeb.Models.BaseUser
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,5 +12,36 @@
 </head>
 <body>
     <h2>Aqui se mostrara los detalles del Usuario, con sus aptitudes</h2>
+
+    <div>
+        <b>Id:</b> @Model.Id
+    </div>
+    <div>
+        <b>Nombre:</b> @Model.Nombre
+    </div>
+        <div>
+        <b>Apellido:</b> @Model.Apellido
+    </div>
+    <div>
+        <b>Usuario:</b> @Model.UsuarioNombre
+    </div>
+    <div>
+        <b>Contraseña:</b> @Model.UsuarioContra
+    </div>
+    <div>
+        <b>Correo:</b> @Model.Correo
+    </div>
+    <div>
+        <b>Tipo de Usuario:</b> @Model.TipoUsuario
+    </div>
+    <div>
+        <b>Telefono:</b> @Model.Telefono
+    </div>
+    <div>
+        <b>Imagen:</b> @Model.Imagen
+    </div>
+    <div>
+        <b>Aptitudes:</b> (@Model.Aptitudes.Length == 0) ? Aun no ha agregado actitudes  : @Model.Aptitudes
+    </div>
 </body>
 </html>
