@@ -1,3 +1,19 @@
-.btn{
-    width: 75px;
+.nav-item:hover {
+    background-color: #53b427;
+    color:white;
 }
+
+.regist_log {
+    border-radius: 50px;
+    list-style: none;
+    display: inline;
+}
+
+#banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url(/images/bg-header.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    margin-top:80px;
+}
+ 

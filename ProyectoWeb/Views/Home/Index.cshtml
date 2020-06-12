@@ -3,43 +3,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Todos los Trabajos";
 }
-    <h2>Estamos en la Pagina donde se mostrara todos los trabajos disponible para postularse</h2>
 
-    @{
-        foreach (var Usuario in Model)
-        {
-            <div style="margin=30px">
-                <div>
-                    <b>Id:</b> @Usuario.Id
+
+    <div id="banner">
+        <div class="container">
+            <div class="sixteen columns">
+
+                <div class="search-container" style="margin-left:300px;margin-top:150px">
+
+
+                    <h2 style="margin-top:100px;color:white;margin-bottom:1px;font-family:'Times New Roman', Times, serif;">Your Future Start Here Know</h2>
+                    <h6 style="color:white;margin-bottom:25px;margin-left:100px;font-family:'Times New Roman', Times, serif;">Search Millions Of Jobs For Free</h6>
+                    <input style="border-radius: 50px;" class="ico-01" type="text" placeholder="Titulo del trabajo" value="" />
+                    <input style="border-radius: 50px;" class="ico-02" type="text" placeholder="Ciudad" value="" />
+                    <button><i class="fa fa-search"></i></button>
+
+
+
                 </div>
-                <div>
-                    <b>Nombre:</b> @Usuario.Nombre
-                </div>
-                <div>
-                    <b>Apellido:</b> @Usuario.Apellido
-                </div>
-                <div>
-                    <b>Usuario:</b> @Usuario.UsuarioNombre
-                </div>
-                <div>
-                    <b>Contraseña:</b> @Usuario.UsuarioContra
-                </div>
-                <div>
-                    <b>Correo:</b> @Usuario.Correo
-                </div>
-                <div>
-                    <b>Tipo de Usuario:</b> @Usuario.TipoUsuario
-                </div>
-                <div>
-                    <b>Telefono:</b> @Usuario.Telefono
-                </div>
-                <div>
-                    <b>Imagen:</b> @Usuario.Imagen
-                </div>
-                <div>
-                    <b>Aptitudes:</b> @Usuario.Aptitudes
-                </div>
-                <hr>
+
             </div>
-        }
-    }
+        </div>
+    </div>
