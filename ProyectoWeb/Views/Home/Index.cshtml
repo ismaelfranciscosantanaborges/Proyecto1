@@ -4,13 +4,48 @@
     ViewBag.Title = "Todos los Trabajos";
 }
 
-    <div class="banner">
+<div class="banner">
 
-        <h2 class="mb-0 text-white">Your Future Start Here Know</h2>
-        <h6 style="color: white; margin-Top: 0px;margin-bottom:30px; margin-left: 90px;">Search Millions Of Jobs For Free</h6>
-        <div class="py-1" style="border-radius: 50px;background-color:white;">
-           <input class="border-0 ml-1  " style="border-radius: 50px;"type="text" placeholder="Search Job by Location" value="" />
-            <button class="float-right border-0 bg-white mr-1" style="border-radius: 50px;"><i class="fa fa-search text-success bg-white "></i></button>
-        </div>
-      
+    <h2 class="mb-0 text-white">Your Future Start Here Know</h2>
+    <h6 style="color: white; margin-Top: 0px;margin-bottom:30px; margin-left: 90px;">Search Millions Of Jobs For Free</h6>
+    <div class="py-1" style="border-radius: 50px;background-color:white;">
+        <input class="border-0 ml-1  " style="border-radius: 50px;" type="text" placeholder="Search Job by Location" value="" />
+        <button class="float-right border-0 bg-white mr-1" style="border-radius: 50px;"><i class="fa fa-search text-success bg-white "></i></button>
     </div>
+
+</div>
+
+    <main>
+        <div class="row mt-5 ">
+            <div class="col">
+                <h1 class="text-center mb-4 text-black-50 text-monospacefont-weight-bold">The Most Resent Post</h1>
+                <div class="list-group " style="background-color:#53b427">
+                    <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mb-4">
+                        <div class="d-flex w-100 justify-content-between align-item-center">
+                            <h4 class="font-weight-bold">Disenador grafico</h4>
+                            <small>Marzo-21 11:50 PM</small>
+                        </div>
+                        <pre class="font-weight-bold"><img src="~/images/descarga .jpg">                   7500/year                     FullTime                 Los Angeles                 <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-success px-4 font-weight-bold" href="#">Aply</a>  <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-secondary font-weight-bold" href="#">Details</a> </pre>
+                    </div>
+                    @{ foreach (var Usuario in Model)
+                        {
+                            <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-4 ">
+                                <div class="d-flex w-100 justify-content-between align-item-center">
+                                    <h4 class="font-weight-bold">Disenador grafico</h4>
+                                    <small>Marzo-21 11:50 PM</small>
+                                </div>
+                                <pre class="font-weight-bold"><img src="~/images/descarga .jpg">            @Usuario.Nombre                 @Usuario.Apellido               @Usuario.Apellido              <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-success px-4 font-weight-bold" href="#">Aply</a>  <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-secondary font-weight-bold" href="#">Details</a> </pre>
+                            </div>
+                        }
+                    }
+                </div>
+                    
+               
+
+
+            </div>
+        </div>
+    </main>
+
+
+
