@@ -5,37 +5,45 @@
     ViewBag.Title = "Details";
 }
 
-    <h2>@Model.Titulo</h2>
-    <div>
-        <b>Id:</b> @Model.Usuario.Id
-    </div>
-    <div>
-        <b>Nombre:</b> @Model.Usuario.Nombre
-    </div>
-    <div>
-        <b>Apellido:</b> @Model.Usuario.Apellido
-    </div>
-    <div>
-        <b>Usuario:</b> @Model.Usuario.UsuarioNombre
-    </div>
-    <div>
-        <b>Contraseña:</b> @Model.Usuario.UsuarioContra
-    </div>
-    <div>
-        <b>Correo:</b> @Model.Usuario.Correo
-    </div>
-    <div>
-        <b>Tipo de Usuario:</b> @Model.Usuario.TipoUsuario
-    </div>
-    <div>
-        <b>Telefono:</b> @Model.Usuario.Telefono
-    </div>
-    <div>
-        <b>Imagen:</b> @Model.Usuario.Imagen
-    </div>
-    <div>
-        <b>Aptitudes:</b> @Model.Usuario.Aptitudes
-    </div>
+    <main class="mb-5" style="margin-top:150px">
+        <div class="row mt-5 ">
+            <div class="col">
+               
+                <div class="list-group " style="background-color:#F9EBEA ;">
+                            <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-3 ">
+                                <div class="d-flex w-100 justify-content-between align-item-center">
+                                    <h4 class="font-weight-bold">ALtice Company</h4>
+                                    <small>Marzo-21 11:50 PM</small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 pl-4"><img class="ml-4" src="~/images/descarga .jpg"></div>
+                                    <div class="col-9 "><pre class=" font-weight-bold">Disenador Grafico              FullTime              Paris-Francia</pre> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 my-3">
+                                        <p>
+                                            El usuario puede introducir algunas palabras clave para refinar su búsqueda. Las
+                                            palabras clave pueden ser palabras se encuentra en los campos de la ubicación, la
+                                            posición, la categoría, y de la compañía.El usuario puede introducir algunas pala
+                                            bras clave para refinar su búsqueda. Laspalabras clave pueden ser palabras se enc
+                                            uentra en los campos de la ubicación, laposición, la categoría, y de la compañía
+                                        </p>
+                                        <ul class="responsive float-right ">
+                                            <li class="nav-item regist_log  px-3 py-2 mr-2" style="background-color:#53b427;">
+                                                <a style="text-decoration:none;color:black;" >APLY</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+             
+                </div>
+            </div>
+        </div>
+    </main>
+  
+   
 @section Scripts
 {
     <script src="~/js/MiScript.js"></script>
