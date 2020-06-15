@@ -85,3 +85,4 @@ C:\Users\Eslokaren\source\repos\Proyecto 1\ProyectoWeb\obj\Debug\netcoreapp3.1\P
 C:\Users\Eslokaren\source\repos\Proyecto 1\ProyectoWeb\obj\Debug\netcoreapp3.1\ProyectoWeb.dll
 C:\Users\Eslokaren\source\repos\Proyecto 1\ProyectoWeb\obj\Debug\netcoreapp3.1\ProyectoWeb.pdb
 C:\Users\Eslokaren\source\repos\Proyecto 1\ProyectoWeb\obj\Debug\netcoreapp3.1\ProyectoWeb.csproj.CopyComplete
+C:\Users\Eslokaren\source\repos\Proyecto 1\ProyectoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs

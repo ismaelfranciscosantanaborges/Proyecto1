@@ -41,5 +41,13 @@ namespace ProyectoWeb.Controllers
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
             return View(detalles);
         }
+        [Route("Home/Login")]
+        [Route("Home/Login/{id}")]
+        public ViewResult Login(int? id)
+        {
+
+            return View();
+        }
+
     }
 }
