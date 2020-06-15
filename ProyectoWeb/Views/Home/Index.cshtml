@@ -15,37 +15,45 @@
 
 </div>
 
-    <main>
-        <div class="row mt-5 ">
-            <div class="col">
-                <h1 class="text-center mb-4 text-black-50 text-monospacefont-weight-bold">The Most Resent Post</h1>
-                <div class="list-group " style="background-color:#53b427">
-                    <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mb-4">
-                        <div class="d-flex w-100 justify-content-between align-item-center">
-                            <h4 class="font-weight-bold">Disenador grafico</h4>
-                            <small>Marzo-21 11:50 PM</small>
-                        </div>
-                        <pre class="font-weight-bold"><img src="~/images/descarga .jpg">                   7500/year                     FullTime                 Los Angeles                 <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-success px-4 font-weight-bold" href="#">Aply</a>  <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-secondary font-weight-bold" href="#">Details</a> </pre>
-                    </div>
-                    @{ foreach (var Usuario in Model)
-                        {
-                            <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-4 ">
-                                <div class="d-flex w-100 justify-content-between align-item-center">
-                                    <h4 class="font-weight-bold">Disenador grafico</h4>
-                                    <small>Marzo-21 11:50 PM</small>
-                                </div>
-                                <pre class="font-weight-bold"><img src="~/images/descarga .jpg">            @Usuario.Nombre                 @Usuario.Apellido               @Usuario.Apellido              <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-success px-4 font-weight-bold" href="#">Aply</a>  <a style="text-decoration:none;color:black; border-radius: 50px;" class="btn bg-secondary font-weight-bold" href="#">Details</a> </pre>
+<main>
+    <div class="row mt-5 ">
+        <div class="col">
+            <h1 class="text-center mb-4 text-black-50 text-monospacefont-weight-bold">The Most Resent Post</h1>
+            <div class="list-group " style="background-color:#F9EBEA ;">
+                @{ foreach (var Usuario in Model)
+                    {
+                        <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-3 ">
+                            <div class="d-flex w-100 justify-content-between align-item-center">
+                                <h4 class="font-weight-bold">Disenador grafico</h4>
+                                <small>Marzo-21 11:50 PM</small>
                             </div>
-                        }
+                            <div class="row">
+                                <div class="col-3"><img src="~/images/descarga .jpg"></div>
+                                <div class="col-6 "><pre class="text-center">@Usuario.Nombre                @Usuario.Apellido               @Usuario.Apellido </pre> </div>
+                                        <div class="col-3 px-1">
+                                            <ul class="responsive float-right ">
+                                                <li class="nav-item regist_log  px-3 py-2 mr-2" style="background-color:lightgrey;">
+                                                    <a style="text-decoration:none;color:black;" href="#">  Details</a>
+                                                </li>
+                                                <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                    <a style="text-decoration:none;color:black;" href="#"> Aply</a>
+                                                </li>
+
+                                            </ul>
+                                        </div> 
+                            </div>
+                        </div>
                     }
-                </div>
-                    
-               
 
-
+                }
             </div>
+
+            <a class="nav-link text-success text-right font-weight-bolder">More Options </a>
+
+
         </div>
-    </main>
+    </div>
+</main>
 
 
-
+@*  <pre class="font-weight-bold"><img src="~/images/descarga .jpg"><p class="text-center  ">@Usuario.Nombre                @Usuario.Apellido               @Usuario.Apellido   <a style="text-decoration:none;color:black; border-radius: 50px;background-color:lightgray;" class="btn  px-4 font-weight-bold " href="#">Aply</a> </pre>*@

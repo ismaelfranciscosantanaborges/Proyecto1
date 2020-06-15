@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse mx-5 font-weight-bolder" id="navbar">
                     <ul class="navbar-nav mr-auto  mx-5 ">
                         <li class="nav-item ml-2  active">
-                            <a  class="nav-link text-dark " asp-controller="Home" asp-action="Details/2" >HOME</a>
+                            <a class="nav-link text-dark " asp-controller="Home" asp-action="Index">HOME</a>
                         </li>
                         <!--boton desplegable-->
 
@@ -70,7 +70,59 @@
         <div>
             @RenderBody()
         </div>
+        <!-- Footer -->
+        <footer class="page-footer ">
+
+          
+                <div class="container">
+                    <div class="row py-4 d-flex align-items-center mt-5" style="background-color:slategrey;color: black ">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-5 mb-md-0">
+                            <h6 class="mb-0">Get connected with us on social networks!</h6>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                            <!-- Facebook -->
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f  mr-4"> </i>
+                            </a>
+                            <!-- Twitter -->
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter  mr-4"> </i>
+                            </a>
+                            <!-- Google +-->
+                            <a class="gplus-ic">
+                                <i class="fab fa-google-plus-g  mr-4"> </i>
+                            </a>
+                            <!--Linkedin -->
+                            <a class="li-ic">
+                                <i class="fab fa-linkedin-in  mr-4"> </i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram "> </i>
+                            </a>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                </div>
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-dark py-5 " style="background-color:lightgray;height:130px; " >
+                © 2020 Copyright:
+                <strong style="color:#53b427;" >  WorkScout.com</strong>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+
         @RenderSection("Scripts", required: false)
+
     </div>     
 </body>
 </html>

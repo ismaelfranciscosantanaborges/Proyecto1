@@ -1,8 +1,14 @@
 {
   "ExpandedNodes": [
+    "",
     "\\ProyectoWeb",
+    "\\ProyectoWeb\\Controllers",
     "\\ProyectoWeb\\Views",
-    "\\ProyectoWeb\\Views\\Home"
+    "\\ProyectoWeb\\Views\\Home",
+    "\\ProyectoWeb\\Views\\Shared",
+    "\\ProyectoWeb\\wwwroot",
+    "\\ProyectoWeb\\wwwroot\\css"
   ],
+  "SelectedNode": "\\ProyectoWeb\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": true
 }

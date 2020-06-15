@@ -31,12 +31,13 @@ namespace ProyectoWeb.Controllers
             return View(listaUsuario);
             //return View("~/MisVistas/Index.cshtml");
         }
+        [Route("Home/Details")]
         [Route("Home/Details/{id}")]
-        public ViewResult Details()
+        public ViewResult Details(int? id)
         {
             
             DetallesView detalles = new DetallesView();
-            detalles.Usuario = _listaUsuario.dameDetallesUsuario(1);
+            detalles.Usuario = _listaUsuario.dameDetallesUsuario(id??1);
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
             return View(detalles);
         }
