@@ -48,6 +48,13 @@ namespace ProyectoWeb.Controllers
 
             return View();
         }
+        [Route("Home/Signup")]
+        [Route("Home/Signup/{id}")]
+        public ViewResult Signup(int? id)
+        {
+
+            return View();
+        }
 
     }
 }
