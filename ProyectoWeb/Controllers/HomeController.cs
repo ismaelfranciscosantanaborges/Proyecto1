@@ -62,6 +62,13 @@ namespace ProyectoWeb.Controllers
 
             return View();
         }
+        [Route("Home/perfilempleado")]
+        [Route("Home/perfilempleado/{id}")]
+        public ViewResult perfilempleado(int? id)
+        {
+
+            return View();
+        }
 
     }
 }
