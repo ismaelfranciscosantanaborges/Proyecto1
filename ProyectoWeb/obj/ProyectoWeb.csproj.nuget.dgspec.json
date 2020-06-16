@@ -1,30 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eslokaren\\source\\repos\\Proyecto 1\\ProyectoWeb\\ProyectoWeb.csproj": {}
+    "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/ProyectoWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eslokaren\\source\\repos\\Proyecto 1\\ProyectoWeb\\ProyectoWeb.csproj": {
+    "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/ProyectoWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eslokaren\\source\\repos\\Proyecto 1\\ProyectoWeb\\ProyectoWeb.csproj",
+        "projectUniqueName": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/ProyectoWeb.csproj",
         "projectName": "ProyectoWeb",
-        "projectPath": "C:\\Users\\Eslokaren\\source\\repos\\Proyecto 1\\ProyectoWeb\\ProyectoWeb.csproj",
-        "packagesPath": "C:\\Users\\Eslokaren\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eslokaren\\source\\repos\\Proyecto 1\\ProyectoWeb\\obj\\",
+        "projectPath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/ProyectoWeb.csproj",
+        "packagesPath": "/Users/ismaelsanatana/.nuget/packages/",
+        "outputPath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Eslokaren\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ismaelsanatana/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
         }
       }
     }

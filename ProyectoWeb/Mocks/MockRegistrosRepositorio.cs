@@ -20,7 +20,7 @@ namespace ProyectoWeb.Mocks
                     Nombre = "Samuel",
                     Apellido = "Perez",
                     Correo = "samuel@gmail.com",
-                    Imagen = "https://imagen/23.png",
+                    Cedula = "402-6536424-2",
                     Telefono = "829-535-7464",
                     UsuarioContra = "123456",
                     UsuarioNombre = "samuelElFinalll",
@@ -32,7 +32,7 @@ namespace ProyectoWeb.Mocks
                     Nombre = "Lola",
                     Apellido = "Mendez",
                     Correo = "lola@gmail.com",
-                    Imagen = "https://imagen/23.png",
+                    Cedula = "402-6530004-2",
                     Telefono = "829-536-1111",
                     UsuarioContra = "123453456",
                     UsuarioNombre = "lolita"
@@ -43,7 +43,7 @@ namespace ProyectoWeb.Mocks
                 Nombre = "Yikauri",
                 Apellido = "Montero",
                 Correo = "Yika@gmail.com",
-                Imagen = "https://imagen/yika.png",
+                Cedula = "402-6536111-2",
                 Telefono = "829-535-7464",
                 UsuarioContra = "micontrasenia",
                 UsuarioNombre = "tuRealYika"
@@ -54,7 +54,7 @@ namespace ProyectoWeb.Mocks
                 Nombre = "Isaac",
                 Apellido = "Manzueta",
                 Correo = "mazueta33@gmail.com",
-                Imagen = "https://imagen/isaac.png",
+                Cedula = "402-6444444-2",
                 Telefono = "829-444-7464",
                 UsuarioContra = "123456",
                 UsuarioNombre = "samuelElFinalll"
@@ -65,7 +65,7 @@ namespace ProyectoWeb.Mocks
                 Nombre = "Luis David",
                 Apellido = "Borges",
                 Correo = "lindonReal@gmail.com",
-                Imagen = "https://imagen/klk.png",
+                Cedula = "402-6599994-2",
                 Telefono = "829-679-7464",
                 UsuarioContra = "123456",
                 UsuarioNombre = "BorgesDavid"
@@ -76,7 +76,7 @@ namespace ProyectoWeb.Mocks
                 Nombre = "Josefina",
                 Apellido = "Caraballo",
                 Correo = "josefinaTuMami@gmail.com",
-                Imagen = "https://imagen/lajosef.png",
+                Cedula = "402-6530000-2",
                 Telefono = "829-222-7464",
                 UsuarioContra = "123456",
                 UsuarioNombre = "laRealll"

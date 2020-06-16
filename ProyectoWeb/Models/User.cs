@@ -11,5 +11,7 @@ namespace ProyectoWeb.Models
         {
             TipoUsuario = ETipoUsuario.User;
         }
+
+
     }
 }

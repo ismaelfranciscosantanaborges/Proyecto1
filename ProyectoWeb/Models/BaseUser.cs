@@ -16,7 +16,9 @@ namespace ProyectoWeb.Models
         public string UsuarioContra { get; set; }
         public string Correo { get; set; }
         public string Telefono { get; set; }
-        public string Imagen { get; set; }
+        public String Cedula { get; set; }
+        public string Profesional { get; set; }
         public string Aptitudes { get; set; }
+
     }
 }

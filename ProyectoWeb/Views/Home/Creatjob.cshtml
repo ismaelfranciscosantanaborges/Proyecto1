@@ -1,4 +1,5 @@
-﻿@model List<BaseUser>
+﻿@* @model List<BaseUser> *@
+@model PuestoTrabajo
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Post Job";
@@ -14,11 +15,11 @@
             <form action="">
                 <div class="form-group row">
                     <div class="col-12 col-md-6 mb-3">
-                        <label for="company">Company</label>
-                        <input type="text" class="form-control" placeholder="Company" name="company" id="company">
+                        <label for="company" asp-for="Compania">Company</label>
+                        <input type="text" asp-for="Compania" class="form-control" placeholder="Company" name="company" id="company">
                     </div>
                     <div class="col-12 col-md-6  mb-3">
-                        <label for="location">Location</label>
+                        <label for="location" asp-for="Ubicacion">Location</label>
                         <input type="text" class="location btn-block py-1" placeholder="Location" name="location" id="location">
                     </div>
                    
@@ -26,11 +27,11 @@
                 <div class="form-group row">
                     <div class="col-12 col-md-6 mb-3">
                         <label for="category">Category</label>
-                        <select name="category " id="category" class="form-control ">
-                            <option value="design">Design</option>
+                        <select name="category " asp-for="Categoria" asp-items="Html.GetEnumSelectList<ECategoria>()" id="category" class="form-control ">
+                            @* <option value="design">Design</option>
                             <option value="analisis">Analysis</option>
                             <option value="administration">Administration</option>
-                            <option value="programming">Programming</option>
+                            <option value="programming">Programming</option> *@
                         </select>
                     </div>
                     <div class="col-12 col-md-6 mb-3">

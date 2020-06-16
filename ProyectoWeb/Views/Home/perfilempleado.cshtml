@@ -1,4 +1,5 @@
-﻿@{Layout = null; }
+﻿@model User
+@{Layout = null; }
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,29 +29,29 @@
                 <form action="">
                     <div class="form-group row">
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                            <input type="text" class="form-control" asp-for="Nombre" placeholder="Name" name="name" id="name">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname">
+                            <input type="text" class="form-control" asp-for="Apellido" placeholder="Lastname" name="lastname" id="lastname">
                         </div>
                         <div class="col-12  mb-1">
-                            <input type="email" class="form-control btn-block" placeholder="Email address" name="email" id="email">
+                            <input type="email" class="form-control btn-block" asp-for="Correo" placeholder="Email address" name="email" id="email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="text" class="form-control" placeholder="Profetion" name="profetion" id="profetion">
+                            <input type="text" class="form-control" asp-for="Profesional" placeholder="Profetion" name="profetion" id="profetion">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="text" class="location btn-block py-1" placeholder="Location" name="location" id="location">
+                            <input type="text" class="location btn-block py-1" asp-for="Telefono" placeholder="Telephone" name="Telephone" id="location">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="file" class="form-control" placeholder="Curriculum " name="Curriculum" id="Curriculum">
+                            <input type="file" class="form-control" asp-for="Aptitudes" placeholder="Curriculum " name="Curriculum" id="Curriculum">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
-                            <input type="text" class=" py-1 btn-block" placeholder="Identity Card" name="cedula" id="cedula">
+                            <input type="text" class=" py-1 btn-block" asp-for="Cedula" placeholder="Identity Card" name="cedula" id="cedula">
                         </div>
                     </div>
                     <input type="submit" class="btn  btn-block mb-3" value="SEND">
