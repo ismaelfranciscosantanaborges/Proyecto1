@@ -1,0 +1,80 @@
+﻿@model List<BaseUser>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Post Job";
+}
+
+<div class="banner2">
+    <h2 class="text-center text-white">GET THE BEST OPTION FOR YOUR COMPANY WITH US</h2>  
+</div>
+
+<main class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <form action="">
+                <div class="form-group row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" placeholder="Company" name="company" id="company">
+                    </div>
+                    <div class="col-12 col-md-6  mb-3">
+                        <label for="location">Location</label>
+                        <input type="text" class="location btn-block py-1" placeholder="Location" name="location" id="location">
+                    </div>
+                   
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label for="category">Category</label>
+                        <select name="category " id="category" class="form-control ">
+                            <option value="design">Design</option>
+                            <option value="analisis">Analysis</option>
+                            <option value="administration">Administration</option>
+                            <option value="programming">Programming</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6 mb-3">
+                        <label for="position">Position</label>
+                        <input type="text" class="form-control" placeholder="Position" name="positon" id="position">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-6 mb-3 " >
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description " class="form-control "> </textarea>
+                    </div>
+
+                    <div class="col-6 mb-3 ">
+
+                        <label>Type</label>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" name="type" id="fullTimee" class="form-check-input mr-2">Full Time
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" name="type" id="partTime" class="form-check-input mr-2">Part TIme
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" name="type" id="freeLance" class="form-check-input mr-2">Freelance
+                            </label>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+                <input type="submit" class="btn btn-success btn-block mb-3" value="SEND">
+            </form>
+        </div>
+
+    </div>
+</main>
+
+

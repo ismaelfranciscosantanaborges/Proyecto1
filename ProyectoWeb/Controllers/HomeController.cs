@@ -55,6 +55,13 @@ namespace ProyectoWeb.Controllers
 
             return View();
         }
+        [Route("Home/Creatjob")]
+        [Route("Home/Creatjob/{id}")]
+        public ViewResult Creatjob(int? id)
+        {
+
+            return View();
+        }
 
     }
 }

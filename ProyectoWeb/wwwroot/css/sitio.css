@@ -74,3 +74,14 @@ input[type=submit] {
 .formlog1 a {
     color: #53b427;
 }
+/*pagina create job*/
+.banner2 {
+    background-image:  url(/images/bg_banner2.jpg);
+    background-size: cover;
+    background-position: center;
+    height:90vh;
+    margin-top: 85px;
+    margin-bottom:60px;
+    padding-top: 150px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
