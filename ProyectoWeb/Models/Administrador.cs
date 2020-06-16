@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWeb.Models
 {
-    public class Administrador: BaseUser
+    public class Administrador: Usuario
     {
         public Administrador()
         {

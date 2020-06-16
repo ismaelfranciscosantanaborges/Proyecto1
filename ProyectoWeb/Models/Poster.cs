@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWeb.Models
 {
-    public class Poster: BaseUser
+    public class Poster: Usuario
     {
         public Poster()
         {

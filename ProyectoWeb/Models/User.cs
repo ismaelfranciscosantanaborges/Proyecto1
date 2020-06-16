@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWeb.Models
 {
-    public class User:BaseUser
+    public class User:Usuario
     {
         public User()
         {

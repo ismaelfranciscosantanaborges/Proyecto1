@@ -8,10 +8,10 @@ namespace ProyectoWeb.Mocks
 {
     public class MockRegistrosRepositorio : IRegistosAlmacenado
     {
-        List<BaseUser> listaRegistro;
+        List<Usuario> listaRegistro;
         public MockRegistrosRepositorio()
         {
-            listaRegistro = new List<BaseUser>();
+            listaRegistro = new List<Usuario>();
 
                 //Esto esta simulando la data que viene de la  base de datos
             listaRegistro.Add(new Administrador
@@ -83,17 +83,17 @@ namespace ProyectoWeb.Mocks
             });
 
         }
-        public BaseUser dameDetallesUsuario(int id)
+        public Usuario dameDetallesUsuario(int id)
         {
             return listaRegistro.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<BaseUser> dameTodosLosUsuarios()
+        public List<Usuario> dameTodosLosUsuarios()
         {
             return listaRegistro;
         }
 
-        public BaseUser nuevo(BaseUser baseUser)
+        public Usuario nuevo(Usuario baseUser)
         {
             User user = (User) baseUser;
             user.Id = listaRegistro.Max(x => x.Id) + 1;

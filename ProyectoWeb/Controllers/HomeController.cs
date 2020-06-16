@@ -15,14 +15,14 @@ namespace ProyectoWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IRegistosAlmacenado _registrosAlmacenado;
-        private readonly MockRegistrosRepositorio _listaUsuario;
+        private readonly IRegistosAlmacenado _listaUsuario;
         private readonly IPuestoTrabajo _listaPuestoTrabajo;
 
-        public HomeController(IRegistosAlmacenado registosAlmacenado, IPuestoTrabajo puestoTrabajo)
+        public HomeController(IRegistosAlmacenado registosAlmacenado, IPuestoTrabajo puestoTrabajo, IRegistosAlmacenado listaUsuario)
         {
             _registrosAlmacenado = registosAlmacenado;
 
-            _listaUsuario = new MockRegistrosRepositorio();
+            _listaUsuario = listaUsuario;
 
             _listaPuestoTrabajo = puestoTrabajo;
 
@@ -34,7 +34,7 @@ namespace ProyectoWeb.Controllers
         [Route("Home/Index")]
         public ViewResult Index()
         {
-            var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
+            //var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
             return View(_listaPuestoTrabajo.dameTodoTrabajo());
             //return View("~/MisVistas/Index.cshtml");
         }

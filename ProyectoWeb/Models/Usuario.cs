@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWeb.Models
 {
-    public abstract class BaseUser
+    public class Usuario
     {
         public int Id { get; set; }
         public ETipoUsuario TipoUsuario { get; protected set; }

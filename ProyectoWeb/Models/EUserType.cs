@@ -9,4 +9,5 @@ namespace ProyectoWeb.Models
     {
         Administrador, Poster, User
     };
+    
 }

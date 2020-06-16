@@ -11,7 +11,7 @@ namespace ProyectoWeb.Models
         [Required(ErrorMessage = "Required"), MaxLength(50, ErrorMessage = "no more than 50 character")]
         public string Compania { get; set; }  
         public ETipoEmpleado TipoEmpleado { get; set; }  
-        [Required(ErrorMessage = "Required"), MaxLength(200, ErrorMessage = "no more than 200 character")]
+        
         public string Logo {get;set;}
         [Required(ErrorMessage = "Required"), MaxLength(200, ErrorMessage = "no more than 200 character")]
 
@@ -28,7 +28,7 @@ namespace ProyectoWeb.Models
         [Display(Name = "Email")]
         [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage= "Incorrect Format")]
         public string Correo { get; set; }
-        public ECategoria Categoria { get; set; }
+        public int Categoria { get; set; }
         [Required(ErrorMessage = "Required"), MaxLength(1000, ErrorMessage = "no more than 1000 character")]
 
         public string DescripcionTrabajo { get; set; }
