@@ -13,13 +13,13 @@ namespace ProyectoWeb.Mocks
             listaTrabajo = new List<PuestoTrabajo>();
 
             listaTrabajo.Add( new PuestoTrabajo{
-                Id =1,
+                Id = 1,
                 Compania = "LegoList",
-                TipoEmpleado = ETipoEmpleado.Medio_Tiempo,
+                TipoEmpleado = ETipoEmpleado.PartTime,
                 Logo = "https://LegoList/Img/logo.png",
                 Url = "https://LegoList",
                 Posicion = "Developer",
-                Ubicacion = "hsjsjsjsjs",
+                Ubicacion = "Santo Domingo",
                 ComoAplicar = "Llenando el formulario",
                 Correo = "legolist@gmail.com",
                 Categoria = ECategoria.Analysis,
@@ -39,5 +39,15 @@ namespace ProyectoWeb.Mocks
             return listaTrabajo.FirstOrDefault(x => x.Id == id);
         }
 
+        public PuestoTrabajo nuevo(PuestoTrabajo puestoTrabajo)
+        {
+            puestoTrabajo.Id = listaTrabajo.Max(x => x.Id) + 1;
+            puestoTrabajo.FechaPublicacion = DateTime.Now;
+            puestoTrabajo.Logo = "";
+    
+            listaTrabajo.Add(puestoTrabajo);
+            return puestoTrabajo;
+        }
     }
 }
+

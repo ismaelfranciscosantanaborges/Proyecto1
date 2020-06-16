@@ -7,5 +7,7 @@ namespace ProyectoWeb.Interfaces
     {
         List<PuestoTrabajo> dameTodoTrabajo();
         PuestoTrabajo dameElTrabajo(int id);
+
+        PuestoTrabajo nuevo(PuestoTrabajo puestoTrabajo);
     }
 }

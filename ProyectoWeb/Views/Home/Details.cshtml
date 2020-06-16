@@ -9,15 +9,15 @@
         <div class="row mt-5 ">
             <div class="col">
                
-                <div class="list-group " style="background-color:#F9EBEA ;">
+                <div class="list-group " style="background-color:#F9EBEA;">
                             <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-3 ">
                                 <div class="d-flex w-100 justify-content-between align-item-center">
-                                    <h4 class="font-weight-bold">ALtice Company</h4>
-                                    <small>Marzo-21 11:50 PM</small>
+                                    <h4 class="font-weight-bold">@Model.PuestoTrabajo.Compania</h4>
+                                    <small>@Model.PuestoTrabajo.FechaPublicacion</small>
                                 </div>
                                 <div class="row">
                                     <div class="col-3 pl-4"><img class="ml-4" src="~/images/descarga .jpg"></div>
-                                    <div class="col-9 "><pre class=" font-weight-bold">Disenador Grafico              FullTime              Paris-Francia</pre> </div>
+                                    <div class="col-9 "><pre class=" font-weight-bold">@Model.PuestoTrabajo.Categoria              @Model.PuestoTrabajo.TipoEmpleado              @Model.PuestoTrabajo.Ubicacion</pre> </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 my-3">

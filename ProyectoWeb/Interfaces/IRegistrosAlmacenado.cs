@@ -9,5 +9,6 @@ namespace ProyectoWeb.Models
     {
         BaseUser dameDetallesUsuario(int id);
         List<BaseUser> dameTodosLosUsuarios();
+        BaseUser nuevo(BaseUser baseUser);
     }
 }

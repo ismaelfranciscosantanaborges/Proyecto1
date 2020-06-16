@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
 
@@ -21,6 +22,7 @@ namespace ProyectoWeb
             services.AddMvc();
             //services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
             services.AddSingleton<IRegistosAlmacenado, MockRegistrosRepositorio>();
+            services.AddSingleton<IPuestoTrabajo, MockTrabajoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -92,5 +92,13 @@ namespace ProyectoWeb.Mocks
         {
             return listaRegistro;
         }
+
+        public BaseUser nuevo(BaseUser baseUser)
+        {
+            User user = (User) baseUser;
+            user.Id = listaRegistro.Max(x => x.Id) + 1;
+            listaRegistro.Add(user);
+            return baseUser;
+        }
     }
 }

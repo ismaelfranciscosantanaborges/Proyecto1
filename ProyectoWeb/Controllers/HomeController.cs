@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
 using ProyectoWeb.ViewModel;
@@ -14,12 +15,18 @@ namespace ProyectoWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IRegistosAlmacenado _registrosAlmacenado;
-        private MockRegistrosRepositorio _listaUsuario;
-        public HomeController(IRegistosAlmacenado registosAlmacenado)
+        private readonly MockRegistrosRepositorio _listaUsuario;
+        private readonly IPuestoTrabajo _listaPuestoTrabajo;
+
+        public HomeController(IRegistosAlmacenado registosAlmacenado, IPuestoTrabajo puestoTrabajo)
         {
             _registrosAlmacenado = registosAlmacenado;
 
             _listaUsuario = new MockRegistrosRepositorio();
+
+            _listaPuestoTrabajo = puestoTrabajo;
+
+
         }
 
         [Route("")]
@@ -28,16 +35,16 @@ namespace ProyectoWeb.Controllers
         public ViewResult Index()
         {
             var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
-            return View(listaUsuario);
+            return View(_listaPuestoTrabajo.dameTodoTrabajo());
             //return View("~/MisVistas/Index.cshtml");
         }
-        [Route("Home/Details")]
-        [Route("Home/Details/{id}")]
+
+        [Route("Home/Details/{id?}")]
         public ViewResult Details(int? id)
         {
-            
             DetallesView detalles = new DetallesView();
-            detalles.Usuario = _listaUsuario.dameDetallesUsuario(id??1);
+            //detalles.Usuario = _listaUsuario.dameDetallesUsuario(id??1);
+            detalles.PuestoTrabajo = _listaPuestoTrabajo.dameElTrabajo(id??1);
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
             return View(detalles);
         }
@@ -56,14 +63,26 @@ namespace ProyectoWeb.Controllers
             return View();
         }
         [Route("Home/Creatjob")]
-        [Route("Home/Creatjob/{id}")]
-        public ViewResult Creatjob(int? id)
+        [HttpGet]
+        public ViewResult Creatjob()
         {
-
+            
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Creatjob(PuestoTrabajo pt)
+        {
+            if(ModelState.IsValid){
+                PuestoTrabajo p = _listaPuestoTrabajo.nuevo(pt);
+                return RedirectToAction("details", new {id = p.Id});
+            }
+            return View();
+        }
+
         [Route("Home/perfilempleado")]
         [Route("Home/perfilempleado/{id}")]
+        [HttpPost]
         public ViewResult perfilempleado(int? id)
         {
 
