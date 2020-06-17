@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,11 +29,13 @@ namespace ProyectoWeb
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddMvc();
-            services.AddDbContext<ProyectoWebContext>(options =>
+            
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ConnectionSql"))
             );
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             //services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
+            services.AddMvc();
             services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
             services.AddTransient<IPuestoTrabajo, MockTrabajoRepositorio>();
         }
@@ -47,6 +50,7 @@ namespace ProyectoWeb
 
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseEndpoints(endpoint =>
             {
                 //endpoint.MapControllers();

@@ -9,9 +9,9 @@ namespace ProyectoWeb.Mocks
 {
     public class MockRegistrosRepositorio : IRegistosAlmacenado
     {
-        private readonly ProyectoWebContext _context;
+        private readonly AppDbContext _context;
         List<Usuario> listaRegistro;
-        public MockRegistrosRepositorio(ProyectoWebContext context)
+        public MockRegistrosRepositorio(AppDbContext context)
         {
             listaRegistro = new List<Usuario>();
             this._context = context;

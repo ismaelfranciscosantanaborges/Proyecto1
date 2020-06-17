@@ -74,7 +74,7 @@
                     <div class="col-12 col-md-6 mb-3">
                         <div class="">
                             <label for="category">Type</label>
-                            <select name="category " asp-for="TipoEmpleado" asp-items="Html.GetEnumSelectList<ETipoEmpleado>()"  class="form-control ">
+                            <select asp-for="TipoEmpleado" asp-items="Html.GetEnumSelectList<ETipoEmpleado>()"  class="form-control ">
                                 @* <option value="design">Design</option>
                                 <option value="analisis">Analysis</option>
                                 <option value="administration">Administration</option>

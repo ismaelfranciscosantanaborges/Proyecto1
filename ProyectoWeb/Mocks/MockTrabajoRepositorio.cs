@@ -10,8 +10,8 @@ namespace ProyectoWeb.Mocks
     public class MockTrabajoRepositorio: IPuestoTrabajo
     {
         //List<PuestoTrabajo> listaTrabajo;
-        private readonly ProyectoWebContext _context; 
-        public MockTrabajoRepositorio(ProyectoWebContext context){
+        private readonly AppDbContext _context; 
+        public MockTrabajoRepositorio(AppDbContext context){
             _context = context;
 
             // listaTrabajo = new List<PuestoTrabajo>();

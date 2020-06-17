@@ -1,17 +1,18 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using ProyectoWeb.Models;
 
 namespace ProyectoWeb.Data
 {
-    public partial class ProyectoWebContext : DbContext
+    public partial class ProyectoWebContext : IdentityDbContext
     {
         public ProyectoWebContext()
         {
         }
 
-        public ProyectoWebContext(DbContextOptions<ProyectoWebContext> options)
+        public ProyectoWebContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
         }

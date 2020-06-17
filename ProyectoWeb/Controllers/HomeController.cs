@@ -131,7 +131,6 @@ namespace ProyectoWeb.Controllers
             if(ModelState.IsValid){
                 var trabajo = _listaPuestoTrabajo.dameElTrabajo(model.Id);
                 
-                
                     trabajo.Compania = model.Compania;
                     trabajo.Logo = model.Logo;
                     trabajo.Url = model.Url;
