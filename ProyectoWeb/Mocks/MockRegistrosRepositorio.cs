@@ -1,4 +1,5 @@
-﻿using ProyectoWeb.Models;
+﻿using ProyectoWeb.Data;
+using ProyectoWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,58 @@ namespace ProyectoWeb.Mocks
 {
     public class MockRegistrosRepositorio : IRegistosAlmacenado
     {
+        private readonly ProyectoWebContext _context;
         List<Usuario> listaRegistro;
-        public MockRegistrosRepositorio()
+        public MockRegistrosRepositorio(ProyectoWebContext context)
         {
             listaRegistro = new List<Usuario>();
+            this._context = context;
+        }
 
-                //Esto esta simulando la data que viene de la  base de datos
-            listaRegistro.Add(new Administrador
+        public Usuario borrar(int id)
+        {
+            Usuario usuario = _context.Usuario.Find(id);
+            if(usuario != null){
+                _context.Usuario.Remove(usuario);
+                _context.SaveChanges();
+            }
+
+            return usuario;
+        }
+
+        public Usuario dameDetallesUsuario(int id)
+        {
+            return _context.Usuario.Find(id);
+        }
+
+        public List<Usuario> dameTodosLosUsuarios()
+        {
+            return _context.Usuario.ToList();
+        }
+
+        public Usuario modificar(Usuario usuario)
+        {
+            var u = _context.Usuario.Attach(usuario);
+            u.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+
+            return usuario;
+
+        }
+
+        public Usuario nuevo(Usuario baseUser)
+        {
+            User user = (User) baseUser;
+            user.Id = listaRegistro.Max(x => x.Id) + 1;
+            listaRegistro.Add(user);
+            return baseUser;
+        }
+    }
+}
+
+/*
+
+           listaRegistro.Add(new Administrador
                 {
                     Id = 1,
                     Nombre = "Samuel",
@@ -82,23 +128,4 @@ namespace ProyectoWeb.Mocks
                 UsuarioNombre = "laRealll"
             });
 
-        }
-        public Usuario dameDetallesUsuario(int id)
-        {
-            return listaRegistro.FirstOrDefault(x => x.Id == id);
-        }
-
-        public List<Usuario> dameTodosLosUsuarios()
-        {
-            return listaRegistro;
-        }
-
-        public Usuario nuevo(Usuario baseUser)
-        {
-            User user = (User) baseUser;
-            user.Id = listaRegistro.Max(x => x.Id) + 1;
-            listaRegistro.Add(user);
-            return baseUser;
-        }
-    }
-}
+            */

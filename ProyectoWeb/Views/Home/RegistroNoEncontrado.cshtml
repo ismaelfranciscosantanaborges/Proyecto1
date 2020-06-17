@@ -1,0 +1,15 @@
+@model int
+
+@{
+    ViewBag.Title = "404 Error";
+}
+
+<div class="alert-danger mt-1 mb-1">
+    <h4> 404 Recurso no encontrado</h4>
+    <hr>
+    <h5>Trabajo con ID = @Model no encontraod</h5>
+</div>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-outline-success" style="width:auto">
+    Ver lista de trabajos
+</a>

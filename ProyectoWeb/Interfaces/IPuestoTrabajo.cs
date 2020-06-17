@@ -9,5 +9,8 @@ namespace ProyectoWeb.Interfaces
         PuestoTrabajo dameElTrabajo(int id);
 
         PuestoTrabajo nuevo(PuestoTrabajo puestoTrabajo);
+
+        PuestoTrabajo borrar(int id);
+        PuestoTrabajo modificar(PuestoTrabajo trabajo);
     }
 }

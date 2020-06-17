@@ -20536,6 +20536,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/RegistroNoEncontrado.cshtml",
+      "TargetPath": "Views\\Home\\RegistroNoEncontrado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

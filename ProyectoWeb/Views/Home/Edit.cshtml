@@ -1,5 +1,5 @@
-﻿@* @model List<BaseUser> *@
-@model ModificarJobModel
+@* @model List<BaseUser> *@
+@model PuestoTrabajo
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Post Job";
@@ -12,8 +12,9 @@
 <main class="container">
     <div class="row mt-3">
         <div class="col">
-            <form asp-controller="Home" asp-action="Creatjob" method="Post">
+            <form asp-controller="Home" asp-action="Edit" method="Post">
                 @* <div asp-validation-summary="All" class="text-danger"></div> *@
+                <input hidden asp-for="Id"/>
 
                 <div class="form-group row">
                     <div class="col-12 col-md-6 mb-3">
@@ -88,32 +89,9 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success btn-block mb-3" value="SEND">
+                <input type="submit" class="btn btn-success btn-block mb-3" value="UPDATE">
             </form>
         </div>
 
     </div>
 </main>
-
-
-
-@* 12
-                    <div class="col-6 mb-3 ">
-                        <label>Type</label>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" name="type" id="fullTimee" class="form-check-input mr-2">Full Time
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" name="type" id="partTime" class="form-check-input mr-2">Part TIme
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" name="type" id="freeLance" class="form-check-input mr-2">Freelance
-                            </label>
-                        </div>
-                    </div> *@
-

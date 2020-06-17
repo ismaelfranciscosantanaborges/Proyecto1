@@ -40,24 +40,7 @@ namespace ProyectoWeb.Mocks
         }
 
         public PuestoTrabajo dameElTrabajo(int id){
-            var trabajo = _context.PuestoTrabajo.FirstOrDefault(x => x.Id == id);
-            //trabajo.TipoEmpleado = ((ETipoEmpleado)trabajo.TipoEmpleado);
-            
-            // switch(tipoTrabajo){
-            //     case 1:
-            //         trabajo.TipoEmpleado = ETipoEmpleado.FullTime;
-            //     break;
-            //     case 2:
-            //         trabajo.TipoEmpleado = ETipoEmpleado.PartTime;
-            //     break;
-            //     case 3:
-            //         trabajo.TipoEmpleado = ETipoEmpleado.Freelancer;
-            //     break;
-            //     default:
-            //             trabajo.TipoEmpleado = ETipoEmpleado.PartTime;
-            //     break;
-            // }
-
+            var trabajo = _context.PuestoTrabajo.Find(id);
             return trabajo;
         }
 
@@ -70,6 +53,24 @@ namespace ProyectoWeb.Mocks
             _context.PuestoTrabajo.Add(puestoTrabajo);
             _context.SaveChanges();
             return puestoTrabajo;
+        }
+
+        public PuestoTrabajo borrar(int id)
+        {
+            PuestoTrabajo p = _context.PuestoTrabajo.Find(id);
+            if(p != null){
+                _context.PuestoTrabajo.Remove(p);
+                _context.SaveChanges();
+            }
+            return p;
+        }
+
+        public PuestoTrabajo modificar(PuestoTrabajo trabajo)
+        {
+            var employee = _context.PuestoTrabajo.Attach(trabajo);
+            employee.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return trabajo; 
         }
     }
 }

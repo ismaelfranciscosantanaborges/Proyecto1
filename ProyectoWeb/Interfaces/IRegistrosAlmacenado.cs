@@ -10,5 +10,8 @@ namespace ProyectoWeb.Models
         Usuario dameDetallesUsuario(int id);
         List<Usuario> dameTodosLosUsuarios();
         Usuario nuevo(Usuario baseUser);
+
+        Usuario borrar(int id);
+        Usuario modificar(Usuario usuario);
     }
 }
