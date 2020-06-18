@@ -20556,13 +20556,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/Details.cshtml",
-      "TargetPath": "Views\\Home\\Details.cshtml",
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Cuenta/Signup.cshtml",
+      "TargetPath": "Views\\Cuenta\\Signup.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/Signup.cshtml",
-      "TargetPath": "Views\\Home\\Signup.cshtml",
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/Details.cshtml",
+      "TargetPath": "Views\\Home\\Details.cshtml",
       "FileKind": "mvc"
     },
     {

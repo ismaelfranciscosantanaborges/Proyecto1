@@ -1,6 +1,6 @@
 using ProyectoWeb.Models;
 
-namespace ProyectoWeb.Views.Home.ViewModel
+namespace ProyectoWeb.ViewModel
 {
     public class ModificarJobModel: PuestoTrabajo
     {

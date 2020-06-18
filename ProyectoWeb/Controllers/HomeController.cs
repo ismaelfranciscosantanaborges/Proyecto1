@@ -7,7 +7,6 @@ using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
 using ProyectoWeb.ViewModel;
-using ProyectoWeb.Views.Home.ViewModel;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -61,13 +60,12 @@ namespace ProyectoWeb.Controllers
 
             return View();
         }
-        [Route("Home/Signup")]
-        [Route("Home/Signup/{id}")]
-        public ViewResult Signup(int? id)
-        {
-
-            return View();
-        }
+        // [Route("Home/Signup")]
+        // public ViewResult Signup()
+        // {
+        //     RegistroModel r = new RegistroModel();
+        //     return View(r);
+        // }
         [Route("Home/Creatjob")]
         [HttpGet]
         public ViewResult Creatjob()
