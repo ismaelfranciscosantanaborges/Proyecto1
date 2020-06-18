@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
@@ -12,6 +13,7 @@ using ProyectoWeb.ViewModel;
 
 namespace ProyectoWeb.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IRegistosAlmacenado _registrosAlmacenado;
@@ -53,13 +55,7 @@ namespace ProyectoWeb.Controllers
             }
             return View(detalles);
         }
-        [Route("Home/Login")]
-        [Route("Home/Login/{id}")]
-        public ViewResult Login(int? id)
-        {
 
-            return View();
-        }
         // [Route("Home/Signup")]
         // public ViewResult Signup()
         // {
@@ -155,7 +151,6 @@ namespace ProyectoWeb.Controllers
         [HttpPost]
         public ViewResult perfilempleado(int? id)
         {
-
             return View();
         }
 

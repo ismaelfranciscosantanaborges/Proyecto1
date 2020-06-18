@@ -1,4 +1,7 @@
-﻿@{Layout = null; }
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,17 +28,25 @@
                             <img src="~/images/logo.png" alt="">
                         </a>
                         <h5>Sign into your account</h5>
-                        <form class="form-group">
-                            <input type="email" placeholder="Email address" class="my-3 p-2 form-text btn-block" />
-                            <input type="password" placeholder="Password" class="mb-3 p-2 form-tex  btn-block" />
+                        <form class="form-group" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <input type="email" asp-for="Email" placeholder="Email address" class="my-3 p-2 form-text btn-block" />
+                            <input type="password" asp-for="Password" placeholder="Password" class="mb-3 p-2 form-tex  btn-block" />
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label asp-for="Remember">
+                                        <input asp-for="Remember">
+                                        @Html.DisplayNameFor(m => m.Remember)
+                                    </label>
+                                </div>
+                            </div>
                             <input type="submit" class="btn btn-dark btn-block mb-3" value="Login">
+                            
                         </form>
                         <a asp-controller="Account" asp-action="Signup" class="nav-link py-2 ">Don't  have an account? Register </a>
                     </div>
                 </div>
         </div>
-           
     </div>
-  
 </body>
 </html>

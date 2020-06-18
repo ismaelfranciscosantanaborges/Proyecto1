@@ -26,8 +26,15 @@ using ProyectoWeb.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"40f8460b64c15553b72300c59e071a7aa31fb927", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f2073827e345e007fc419aacaea48d9d62dddb84", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53a09034ba28c670023e38457d3709a9888be7ee", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<PuestoTrabajo>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/images/descarga .jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -117,7 +124,7 @@ using ProyectoWeb.ViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("</small>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-3\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "40f8460b64c15553b72300c59e071a7aa31fb9277437", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "40f8460b64c15553b72300c59e071a7aa31fb9277650", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -159,7 +166,7 @@ using ProyectoWeb.ViewModel;
                                             <ul class=""responsive float-right "">
                                                 <li class=""nav-item regist_log  px-3 py-2 mr-2"" style=""background-color:lightgrey;"">
                                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40f8460b64c15553b72300c59e071a7aa31fb9279901", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40f8460b64c15553b72300c59e071a7aa31fb92710114", async() => {
                 WriteLiteral("  Details");
             }
             );
@@ -193,7 +200,7 @@ using ProyectoWeb.ViewModel;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                                                </li>\n                                                <li class=\"nav-item regist_log  px-4 py-2\" style=\"background-color:#53b427;\">\n                                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40f8460b64c15553b72300c59e071a7aa31fb92712664", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40f8460b64c15553b72300c59e071a7aa31fb92712878", async() => {
                 WriteLiteral(" Aply");
             }
             );

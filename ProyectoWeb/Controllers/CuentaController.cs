@@ -1,5 +1,6 @@
 ﻿
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoWeb.ViewModel;
@@ -8,6 +9,7 @@ using ProyectoWeb.ViewModel;
 
 namespace ProyectoWeb.Controllers
 {
+    [Authorize]
     public class CuentaController : Controller
     {
         private readonly UserManager<IdentityUser> _gestionUsuarios;
@@ -24,6 +26,7 @@ namespace ProyectoWeb.Controllers
 
         [HttpGet]
         [Route("Account/Signup")]
+        [AllowAnonymous]
         public IActionResult Signup()
         {
             return View();
@@ -31,6 +34,7 @@ namespace ProyectoWeb.Controllers
 
         [HttpPost]
         [Route("Account/Signup")]
+        [AllowAnonymous]
         public async Task<IActionResult> Signup(RegistroModel model)
         {
             if(ModelState.IsValid){
@@ -53,5 +57,39 @@ namespace ProyectoWeb.Controllers
             }
             return View(model);
         }
+
+        [Route("Account/Login")]
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("Account/Login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _gestionLogin.PasswordSignInAsync(
+                    model.Email, model.Password, model.Remember, false
+               );
+
+               if(result.Succeeded){
+                   return RedirectToAction("Index", "Home");
+               }
+               ModelState.AddModelError(string.Empty, "Invalid Login");
+            }
+            return View(model);
+        }
+ 
+        [HttpPost]
+        [Route("Account/SignOut")]
+        public async Task<IActionResult> SignOut(){
+            await _gestionLogin.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+        
     }
 }

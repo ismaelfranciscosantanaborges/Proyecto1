@@ -38,6 +38,8 @@ namespace ProyectoWeb
             services.AddMvc();
             services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
             services.AddTransient<IPuestoTrabajo, MockTrabajoRepositorio>();
+
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,7 @@ namespace ProyectoWeb
             app.UseRouting();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoint =>
             {
                 //endpoint.MapControllers();

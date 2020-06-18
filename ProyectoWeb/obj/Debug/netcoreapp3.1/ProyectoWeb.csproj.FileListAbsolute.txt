@@ -113,7 +113,6 @@ C:/Users/Eslokaren/source/repos/Proyecto 1/ProyectoWeb/obj/Debug/netcoreapp3.1/R
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/Creatjob.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/Login.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/perfilempleado.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Home/_ViewStart.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
@@ -169,3 +168,4 @@ C:/Users/Eslokaren/source/repos/Proyecto 1/ProyectoWeb/obj/Debug/netcoreapp3.1/R
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Cuenta/Signup.cshtml.g.cs
+/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Cuenta/Login.cshtml.g.cs
