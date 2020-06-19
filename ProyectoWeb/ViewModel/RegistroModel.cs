@@ -19,5 +19,7 @@ namespace ProyectoWeb.ViewModel
         [Compare("Password", ErrorMessage = "The passoword and the confirm password do not match")]
         public string PasswordValidar { get; set; }
 
+        [Display(Name = "Help Password")]
+        public string HelpPassword { get; set; }
     }
 }

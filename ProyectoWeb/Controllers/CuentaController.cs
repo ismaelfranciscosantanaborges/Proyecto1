@@ -12,10 +12,10 @@ namespace ProyectoWeb.Controllers
     [Authorize]
     public class CuentaController : Controller
     {
-        private readonly UserManager<IdentityUser> _gestionUsuarios;
-        private readonly SignInManager<IdentityUser> _gestionLogin;
+        private readonly UserManager<UserAplication> _gestionUsuarios;
+        private readonly SignInManager<UserAplication> _gestionLogin;
 
-        public CuentaController(UserManager<IdentityUser> gestionUsuarios, SignInManager<IdentityUser> gestionLogin)
+        public CuentaController(UserManager<UserAplication> gestionUsuarios, SignInManager<UserAplication> gestionLogin)
         {
             _gestionUsuarios = gestionUsuarios;
 
@@ -38,9 +38,10 @@ namespace ProyectoWeb.Controllers
         public async Task<IActionResult> Signup(RegistroModel model)
         {
             if(ModelState.IsValid){
-                var usuario = new IdentityUser{
+                var usuario = new UserAplication{
                     UserName = model.Email,
-                    Email = model.Email
+                    Email = model.Email,
+                    HelpPassword = model.HelpPassword
                 };
 
                 var resultado = await _gestionUsuarios.CreateAsync(usuario, model.Password);

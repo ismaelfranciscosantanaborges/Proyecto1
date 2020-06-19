@@ -169,3 +169,6 @@ C:/Users/Eslokaren/source/repos/Proyecto 1/ProyectoWeb/obj/Debug/netcoreapp3.1/R
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Cuenta/Signup.cshtml.g.cs
 /Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Cuenta/Login.cshtml.g.cs
+/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Admin/ListRoles.cshtml.g.cs
+/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Admin/CreateRole.cshtml.g.cs
+/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Admin/EditRole.cshtml.g.cs

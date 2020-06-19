@@ -29,6 +29,7 @@
           "Microsoft.EntityFrameworkCore.Design": "3.1.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.5",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.5",
+          "jQuery.Validation": "1.19.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "3.1.0.0",
@@ -300,6 +301,12 @@
         },
         "compile": {
           "ProyectoWeb.dll": {}
+        }
+      },
+      "jQuery/1.4.4": {},
+      "jQuery.Validation/1.19.1": {
+        "dependencies": {
+          "jQuery": "1.4.4"
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -3012,6 +3019,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "jQuery/1.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kexCeYIZehR5fRjo8CK1sngN5SZEQRFNfCYZHMS1RxwEEiSKetBw/gliYJcLJdJEBB+e9aHqleLCjuaSI7u23g==",
+      "path": "jquery/1.4.4",
+      "hashPath": "jquery.1.4.4.nupkg.sha512"
+    },
+    "jQuery.Validation/1.19.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vxIiGOMV4v+pXmv3gZ+MVuOwrnWGC4BQe7cy7GdhiJ3LkWiA7LRVz97q7WJf7KndYtld5zcuaJtGm0ATWKD/fQ==",
+      "path": "jquery.validation/1.19.1",
+      "hashPath": "jquery.validation.1.19.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",

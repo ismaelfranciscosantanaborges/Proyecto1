@@ -49,6 +49,10 @@
                                 <input type="password" class="form-control" placeholder="Confirm password" asp-for="PasswordValidar">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="HelpPassword"></label>
+                            <input asp-for="HelpPassword" class="form-control">
+                        </div>
                         <input type="submit" class="btn  btn-block mb-3" value="SEND">
                     </form>
                     <a asp-controller="Home" asp-action="Login" class="nav-link py-2 ">Do you  have an account? Login </a>

@@ -2,10 +2,11 @@ using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProyectoWeb.Data;
+using ProyectoWeb.ViewModel;
 
 namespace ProyectoWeb.Models
 {
-    public class AppDbContext:IdentityDbContext
+    public class AppDbContext:IdentityDbContext<UserAplication>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {

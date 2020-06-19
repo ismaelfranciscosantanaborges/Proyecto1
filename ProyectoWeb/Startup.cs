@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +16,7 @@ using ProyectoWeb.Data;
 using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
+using ProyectoWeb.ViewModel;
 
 namespace ProyectoWeb
 {
@@ -33,9 +36,13 @@ namespace ProyectoWeb
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ConnectionSql"))
             );
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<UserAplication, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             //services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
-            services.AddMvc();
+            services.AddMvc(options => {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            }).AddXmlSerializerFormatters();
+
             services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
             services.AddTransient<IPuestoTrabajo, MockTrabajoRepositorio>();
 
