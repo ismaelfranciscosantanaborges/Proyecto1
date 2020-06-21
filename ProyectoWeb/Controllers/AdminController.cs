@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -189,7 +190,72 @@ namespace ProyectoWeb.Controllers {
 
             return RedirectToAction("EditRole", new {Id = roleId});
         }
-    
-    
+
+        [HttpGet]
+        [Route("Admin/ListUsers")]
+        public IActionResult ListUsers(){
+            var users = _gestionUser.Users;
+            return View(users);
+        }
+
+        [HttpGet]
+        [Route("Admin/EdtiUser")]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _gestionUser.FindByIdAsync(id);
+
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"User with id = {id} not find";
+                return View("Error");
+            }
+
+            var userClaims = await _gestionUser.GetClaimsAsync(user);
+            var userRole = await _gestionUser.GetRolesAsync(user);
+
+            var model = new EditUserModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                HelpPassword = user.HelpPassword,
+                Notifications = userClaims.Select( c => c.Value).ToList(),
+                Roles = userRole
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Admin/EdtiUser")]
+        public async Task<IActionResult> EditUser(EditUserModel model)
+        {
+            var user = await _gestionUser.FindByIdAsync(model.Id);
+
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"User with id = {model.Id} not find";
+                return View("Error");
+            }else
+            {
+                user.Email = model.Email;
+                user.UserName = model.UserName;
+                user.HelpPassword = model.HelpPassword;
+
+                var result = await _gestionUser.UpdateAsync(user);
+
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("ListUsers");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(model);
+            }
+        }
     }
 }

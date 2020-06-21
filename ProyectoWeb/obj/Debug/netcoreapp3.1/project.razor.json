@@ -20536,8 +20536,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Admin/EditUser.cshtml",
+      "TargetPath": "Views\\Admin\\EditUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Cuenta/Login.cshtml",
       "TargetPath": "Views\\Cuenta\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Admin/ListUsers.cshtml",
+      "TargetPath": "Views\\Admin\\ListUsers.cshtml",
       "FileKind": "mvc"
     },
     {

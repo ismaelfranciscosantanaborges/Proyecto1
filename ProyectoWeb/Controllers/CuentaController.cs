@@ -47,6 +47,10 @@ namespace ProyectoWeb.Controllers
                 var resultado = await _gestionUsuarios.CreateAsync(usuario, model.Password);
 
                 if(resultado.Succeeded){
+                    if(_gestionLogin.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("ListUsers", "Admin");
+                    }
                     await _gestionLogin.SignInAsync(usuario, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

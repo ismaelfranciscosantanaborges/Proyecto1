@@ -70,7 +70,9 @@
                                 @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                 {
                                     <div class="dropdown-menu" aria-labelledby="menu-candidatos">
+                                        <a asp-controller="Admin" asp-action="ListUsers" class="dropdown-item">Users</a>
                                         <a asp-controller="Admin" asp-action="Roles" class="dropdown-item">Roles</a>
+                                        
                                         @* <a asp-controller="Account" asp-action="SignOut" class="dropdown-item">SignOut</a> *@
                                         <form method="post" asp-controller="Account" asp-action="SignOut">
                                             <button type="submit" style="width:auto;color:black;" class="nav-link btn btn-link py-0">
