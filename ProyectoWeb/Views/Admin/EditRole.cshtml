@@ -53,8 +53,7 @@
         </div>
 
         <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="width:auto">New user</a>
-            <a href="#" class="btn btn-primary" style="width:auto">Delete user</a>
+            <a asp-controller="Admin" asp-action="EditUserRole" asp-route-roleId="@Model.Id" class="btn btn-primary" style="width:auto">Create or Delete User</a>
         </div>
     </div>
 </form>

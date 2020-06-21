@@ -1,4 +1,5 @@
 @model List<PuestoTrabajo>
+@inject SignInManager<UserAplication> SignInManager
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Todos los Trabajos";
@@ -35,9 +36,17 @@
                                                 <li class="nav-item regist_log  px-3 py-2 mr-2" style="background-color:lightgrey;">
                                                     <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Details" asp-route-id="@t.Id">  Details</a>
                                                 </li>
-                                                <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
-                                                    <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id"> Aply</a>
-                                                </li>
+                                                @if(SignInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Poster")))
+                                                {
+                                                    <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                        <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                                                    </li>
+                                                }else
+                                                {
+                                                    <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                        <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Aply</a>
+                                                    </li>
+                                                }
 
                                             </ul>
                                         </div> 

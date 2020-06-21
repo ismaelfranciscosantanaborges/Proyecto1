@@ -61,32 +61,36 @@
                         <span asp-validation-for="Correo" class="text-danger"></span>
                     </div>
                 </div>
-
+              <div class="form-group row">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label >Company Phone</label>
+                            <input type="text"  class="form-control" placeholder="Company Phone" >
+                            
+                        </div>
+                        <div class="col-12 col-md-6  mb-3">
+                            <label for="category">Type</label>
+                                    <select name="category " asp-for="TipoEmpleado" asp-items="Html.GetEnumSelectList<ETipoEmpleado>()"  class="form-control ">
+                                        @* <option value="design">Design</option>
+                                        <option value="analisis">Analysis</option>
+                                        <option value="administration">Administration</option>
+                                        <option value="programming">Programming</option> *@
+                                    </select>
+                        </div>
+                    
+                </div>
 
                 <div class="form-group row">
-                    <div class="col-6 mb-3 " >
+                    <div class="col-12 col-md-6 mb-3 " >
                         <label asp-for="DescripcionTrabajo">Description</label>
                         <textarea asp-for="DescripcionTrabajo"class="form-control "> </textarea>
                         <span asp-validation-for="DescripcionTrabajo" class="text-danger"></span>
                     </div>
-
-                    <div class="col-12 col-md-6 mb-3">
-                        <div class="">
-                            <label for="category">Type</label>
-                            <select name="category " asp-for="TipoEmpleado" asp-items="Html.GetEnumSelectList<ETipoEmpleado>()"  class="form-control ">
-                                @* <option value="design">Design</option>
-                                <option value="analisis">Analysis</option>
-                                <option value="administration">Administration</option>
-                                <option value="programming">Programming</option> *@
-                            </select>
-                        </div>
-
-                        <div class="col-6 mb-3" >
-                            <label asp-for="ComoAplicar">How Aply</label>
-                            <textarea asp-for="ComoAplicar"  class="form-control"> </textarea>
-                            <span asp-validation-for="ComoAplicar" class="text-danger"></span>
-                        </div>
+                    <div class="col-12 col-md-6 mb-3 " >
+                        <label asp-for="ComoAplicar">How Aply</label>
+                        <textarea asp-for="ComoAplicar"  class="form-control"> </textarea>
+                        <span asp-validation-for="ComoAplicar" class="text-danger"></span>
                     </div>
+                    
                 </div>
                 <input type="submit" class="btn btn-success btn-block mb-3" value="SEND">
             </form>

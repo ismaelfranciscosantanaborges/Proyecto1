@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,8 @@ using ProyectoWeb.ViewModel;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ProyectoWeb.Controllers {
-    [Authorize]
+    
+    //[Authorize(Roles = "Admin")]
     public class AdminController : Controller {
         private readonly RoleManager<IdentityRole> _gestionRoles;
 
@@ -113,5 +115,81 @@ namespace ProyectoWeb.Controllers {
             return View (modell);
         }
 
+        [HttpGet]
+        [Route("Admin/EditUserRole")]
+        public async Task<IActionResult> EditUserRole(string roleId){
+            ViewBag.roleId = roleId;
+
+            var role = await _gestionRoles.FindByIdAsync(roleId);
+
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} not find";
+                return View("Error");
+            }
+
+            var model = new List<UserRoleModel>();
+
+            foreach (var user in _gestionUser.Users)
+            {   
+                var userRoleModel = new UserRoleModel{
+                    UserId = user.Id,
+                    UserName = user.UserName
+                };
+
+                if(await _gestionUser.IsInRoleAsync(user, role.Name))
+                {
+                    userRoleModel.IsSelect = true;
+                }else
+                {
+                    userRoleModel.IsSelect = false;
+                }
+
+                model.Add(userRoleModel);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Admin/EditUserRole")]
+        public async Task<IActionResult> EditUserRole(List<UserRoleModel> model, string roleId){
+            var role = await _gestionRoles.FindByIdAsync(roleId);
+
+            if(role == null){
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} not find";
+                return View("Error");
+            }
+
+            for (int i = 0; i < model.Count; i++)
+            {
+                var user = await _gestionUser.FindByIdAsync(model[i].UserId);
+
+                IdentityResult result = null;
+
+                if(model[i].IsSelect && !(await _gestionUser.IsInRoleAsync(user, role.Name)))
+                {
+                    result = await _gestionUser.AddToRoleAsync(user, role.Name);
+                }else if(!model[i].IsSelect && await _gestionUser.IsInRoleAsync(user, role.Name))
+                {
+                    result = await _gestionUser.RemoveFromRoleAsync(user, role.Name);
+                }else
+                {
+                    continue;
+                }
+
+                if(result.Succeeded)
+                {
+                    if(i < (model.Count - 1))
+                        continue;
+                    else
+                        return RedirectToAction("EditRole", new {Id = roleId});
+                }
+            }
+
+            return RedirectToAction("EditRole", new {Id = roleId});
+        }
+    
+    
     }
 }

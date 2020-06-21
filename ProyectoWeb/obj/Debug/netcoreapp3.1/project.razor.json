@@ -20521,6 +20521,11 @@
   "RootNamespace": "ProyectoWeb",
   "Documents": [
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Admin/EditUserRole.cshtml",
+      "TargetPath": "Views\\Admin\\EditUserRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Admin/CreateRole.cshtml",
       "TargetPath": "Views\\Admin\\CreateRole.cshtml",
       "FileKind": "mvc"

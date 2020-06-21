@@ -43,26 +43,63 @@
 
                             </div>
                         </li>
-                        <li class="nav-item dropdown  ">
+                        <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle text-dark " id="menu-candidatos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 PARA CANDIDATOS
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="menu-candidatos">
-                                <a asp-controller="Home" asp-action="Creatjob" class="dropdown-item">Agregar trabajo</a>
-                            </div>
+                            @if(SignInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Poster")))
+                            {  
+                                <div class="dropdown-menu" aria-labelledby="menu-candidatos">
+                                    <a asp-controller="Home" asp-action="Creatjob" class="dropdown-item">Agregar trabajo</a>
+                                </div>
+                            }else
+                            {
+                                
+                            }
                         </li>
 
                     </ul>
                     <ul class="responsive float-right ">
                         @if(SignInManager.IsSignedIn(User))
-                        {                        
-                            <li class="nav-item">
+                        {            
+
+                            <li class="nav-item dropdown nav-link mt-2">
+                                <a href="#" class="nav-link dropdown-toggle text-dark " id="menu-candidatos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @User.Identity.Name
+                                </a>
+                                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {
+                                    <div class="dropdown-menu" aria-labelledby="menu-candidatos">
+                                        <a asp-controller="Admin" asp-action="Roles" class="dropdown-item">Roles</a>
+                                        @* <a asp-controller="Account" asp-action="SignOut" class="dropdown-item">SignOut</a> *@
+                                        <form method="post" asp-controller="Account" asp-action="SignOut">
+                                            <button type="submit" style="width:auto;color:black;" class="nav-link btn btn-link py-0">
+                                                SignOut
+                                            </button>
+                                        </form>
+                                    </div>
+                                  
+                                }else
+                                {
+                                    <div class="dropdown-menu" aria-labelledby="menu-candidatos">
+                                        <form method="post" asp-controller="Account" asp-action="SignOut">
+                                            <button type="submit" style="width:auto; color:black;" class="nav-link btn btn-link py-0 ">
+                                                SignOut
+                                            </button>
+                                        </form>
+                                    </div>
+                                }
+                                
+                                
+                            </li>
+                                        
+                            @* <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="SignOut">
                                     <button type="submit" style="width:auto" class="nav-link btn btn-link py-0">
                                         Logout @User.Identity.Name
                                     </button>
                                 </form>
-                            </li>  
+                            </li>   *@
                         }else
                         {
 
@@ -140,3 +177,4 @@
     </div>     
 </body>
 </html>
+
