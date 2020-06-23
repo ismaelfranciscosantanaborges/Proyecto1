@@ -20596,6 +20596,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Admin/GestionRolesUser.cshtml",
+      "TargetPath": "Views\\Admin\\GestionRolesUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Disk Ismael/Desktop/ProyectosC#/backupProject/Proyecto/ProyectoWeb/Views/Home/_ViewStart.cshtml",
       "TargetPath": "Views\\Home\\_ViewStart.cshtml",
       "FileKind": "mvc"

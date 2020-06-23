@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ProyectoWeb.Models;
 
-namespace ProyectoWeb.Data
+namespace ProyectoWeb.Models
 {
     public partial class UsuarioPuestoTrabajo
     {
         [Key]
         public int Id {get;set;}
         [Required]
-        public int IdUsuario { get; set; }
+        public string IdUsuario { get; set; }
         [Required]
         public int IdPuestoTrabajo { get; set; }
         [Required]

@@ -54,7 +54,7 @@ namespace ProyectoWeb.Models
             modelBuilder.Entity<UsuarioPuestoTrabajo>().HasData(new UsuarioPuestoTrabajo{
                 Id = 1,
                 IdPuestoTrabajo = 1,
-                IdUsuario =1,
+                IdUsuario = "e618b7ca-b1a7-4e50-abe8-63fa61d72b42",
                 ParaAplicar = true
             });
             base.OnModelCreating(modelBuilder);

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoWeb.Data;
 using ProyectoWeb.Interfaces;
 using ProyectoWeb.Mocks;
 using ProyectoWeb.Models;
@@ -16,13 +18,13 @@ namespace ProyectoWeb.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly IRegistosAlmacenado _registrosAlmacenado;
         private readonly IRegistosAlmacenado _listaUsuario;
-        private readonly IPuestoTrabajo _listaPuestoTrabajo;
+        private readonly IUserJob _userJob;
 
-        public HomeController(IRegistosAlmacenado registosAlmacenado, IPuestoTrabajo puestoTrabajo, IRegistosAlmacenado listaUsuario)
+        private readonly IPuestoTrabajo _listaPuestoTrabajo;
+        public HomeController(IPuestoTrabajo puestoTrabajo, IRegistosAlmacenado listaUsuario, IUserJob userJob)
         {
-            _registrosAlmacenado = registosAlmacenado;
+            _userJob = userJob;
 
             _listaUsuario = listaUsuario;
 
@@ -34,10 +36,15 @@ namespace ProyectoWeb.Controllers
         [Route("")]
         [Route("Home")]
         [Route("Home/Index")]
-        public ViewResult Index()
+        public ViewResult Index(string cadena = "")
         {
             //var listaUsuario = _listaUsuario.dameTodosLosUsuarios();
-            return View(_listaPuestoTrabajo.dameTodoTrabajo());
+            PuestoTrabajoModel model = new PuestoTrabajoModel();
+            model.listPT = _listaPuestoTrabajo.getOfFilter(cadena);
+            model.listUPT = _userJob.dameTodoUserJob(User.getUserId());
+
+            
+            return View(model);
             //return View("~/MisVistas/Index.cshtml");
         }
 
@@ -49,7 +56,8 @@ namespace ProyectoWeb.Controllers
             detalles.PuestoTrabajo = _listaPuestoTrabajo.dameElTrabajo(id);
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
 
-            if(detalles.PuestoTrabajo == null){
+            if (detalles.PuestoTrabajo == null)
+            {
                 Response.StatusCode = 404;
                 return View("RegistroNoEncontrado", id);
             }
@@ -67,81 +75,70 @@ namespace ProyectoWeb.Controllers
         public ViewResult Creatjob()
         {
             // if(id != null){
-                
+
             //     var trabajo = _listaPuestoTrabajo.dameElTrabajo(id??1);
             //     ModificarJobModel model = new ModificarJobModel(trabajo);
             //     return View(model);
             // }
             ModificarJobModel model2 = new ModificarJobModel();
+
             return View(model2);
         }
 
         [HttpPost]
         public IActionResult Creatjob(ModificarJobModel pt)
         {
-            if(ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
 
-                PuestoTrabajo p; 
-                if(pt.paraModificar){
-                    p = _listaPuestoTrabajo.dameElTrabajo(pt.Id);
-                    
-                    p.Id = pt.Id;
-                    p.Compania = pt.Compania;
-                    p.Logo = pt.Logo;
-                    p.Url = pt.Url;
-                    p.Posicion = pt.Posicion;
-                    p.Ubicacion = pt.Ubicacion;
-                    p.ComoAplicar = pt.ComoAplicar;
-                    p.Correo = pt.Correo;
-                    p.Categoria = pt.Categoria;
-                    p.DescripcionTrabajo = pt.DescripcionTrabajo;
-                    p.FechaPublicacion = pt.FechaPublicacion;
-                    p.TipoEmpleado = pt.TipoEmpleado;
+                PuestoTrabajo p = _listaPuestoTrabajo.nuevo(pt);
 
-                    PuestoTrabajo pModificado = _listaPuestoTrabajo.modificar(p);
-                    return RedirectToAction("index");
-                }else{
-                    p = _listaPuestoTrabajo.nuevo(pt);
-                }
-                
-                return RedirectToAction("details", new {id = p.Id});
+                UsuarioPuestoTrabajo upt = new UsuarioPuestoTrabajo();
+                upt.IdUsuario = User.getUserId();
+                upt.IdPuestoTrabajo = p.Id;
+                upt.ParaAplicar = false;
+                _userJob.nuevo(upt);
+
+               
+                return RedirectToAction("details", new { id = p.Id });
             }
             return View();
         }
-        
+
         [HttpGet]
         public ViewResult Edit(int id)
         {
             PuestoTrabajo p = _listaPuestoTrabajo.dameElTrabajo(id);
 
             return View(p);
-            
+
         }
 
         [HttpPost]
         public IActionResult Edit(PuestoTrabajo model)
         {
-            
-            if(ModelState.IsValid){
-                var trabajo = _listaPuestoTrabajo.dameElTrabajo(model.Id);
-                
-                    trabajo.Compania = model.Compania;
-                    trabajo.Logo = model.Logo;
-                    trabajo.Url = model.Url;
-                    trabajo.Posicion = model.Posicion;
-                    trabajo.Ubicacion = model.Ubicacion;
-                    trabajo.ComoAplicar = model.ComoAplicar;
-                    trabajo.Correo = model.Correo;
-                    trabajo.Categoria = model.Categoria;
-                    trabajo.DescripcionTrabajo = model.DescripcionTrabajo;
-                    trabajo.TipoEmpleado = model.TipoEmpleado;
 
-                    PuestoTrabajo pModificado = _listaPuestoTrabajo.modificar(trabajo);
-                    return RedirectToAction("index");
+            if (ModelState.IsValid)
+            {
+                var trabajo = _listaPuestoTrabajo.dameElTrabajo(model.Id);
+
+                trabajo.Compania = model.Compania;
+                trabajo.Logo = model.Logo;
+                trabajo.Url = model.Url;
+                trabajo.Posicion = model.Posicion;
+                trabajo.Ubicacion = model.Ubicacion;
+                trabajo.ComoAplicar = model.ComoAplicar;
+                trabajo.Correo = model.Correo;
+                trabajo.Categoria = model.Categoria;
+                trabajo.DescripcionTrabajo = model.DescripcionTrabajo;
+                trabajo.TipoEmpleado = model.TipoEmpleado;
+
+                PuestoTrabajo pModificado = _listaPuestoTrabajo.modificar(trabajo);
+                return RedirectToAction("index");
             }
 
             return View(model);
-            
+
         }
 
 
@@ -153,6 +150,19 @@ namespace ProyectoWeb.Controllers
         {
             return View();
         }
+        [Route("Api/PuestoTrabajo")]
+        public JsonResult json()
+        {
+            return Json(_listaPuestoTrabajo.dameTodoTrabajo());
+        }
 
+        [Route("Api/Users")]
+        public JsonResult json2()
+        {
+            return Json(_listaUsuario.dameTodosLosUsuarios());
+        }
+
+
+      
     }
 }

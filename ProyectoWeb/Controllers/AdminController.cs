@@ -257,5 +257,148 @@ namespace ProyectoWeb.Controllers {
                 return View(model);
             }
         }
+
+        [HttpPost]
+        [Route("Admin/DeleteUser")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _gestionUser.FindByIdAsync(id);
+
+            if(user == null)
+            {
+                ViewBag.Title = $"User with Id = {id} not find";
+                return View("Error");
+            }else
+            {
+                var result = await _gestionUser.DeleteAsync(user);
+
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("ListUsers");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ListUsers");
+            }
+        }
+        
+        [HttpPost]
+        [Route("Admin/DeleteRole")]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await _gestionRoles.FindByIdAsync(id);
+
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with id = {id} not find";
+                return View("Error");
+            }
+            else
+            {
+                var result = await _gestionRoles.DeleteAsync(role);
+
+                if( result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ListRoles");
+            }
+
+        }
+
+          [HttpGet]
+        [Route("Admin/GestionRolesUser")]
+        public async Task<IActionResult> GestionRolesUser(string idUser)
+        {
+            ViewBag.IdUser = idUser;
+
+            var user = await _gestionUser.FindByIdAsync(idUser);
+
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"The user with id = {idUser} not find";
+                
+                return View("Error");
+            }
+
+            var model = new List<RoleUserModel>();
+
+            foreach (var role in _gestionRoles.Roles)
+            {
+                var roleUserModel = new RoleUserModel
+                {
+                    RoleId = role.Id,
+                    RoleName = role.Name
+                };
+
+                if(await _gestionUser.IsInRoleAsync(user, role.Name))
+                {
+                    roleUserModel.IsSelect = true;
+                }else
+                {
+                    roleUserModel.IsSelect = false;
+                }
+
+                model.Add(roleUserModel);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Admin/GestionRolesUser")]
+        public async Task<IActionResult> GestionRolesUser(List<RoleUserModel> model, string Id)
+        {
+            var user = await _gestionUser.FindByIdAsync(Id);
+
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"The user with id = {Id} not find";
+                return View("Error");
+            }
+
+            var roles = await _gestionUser.GetRolesAsync(user);
+            var result = await _gestionUser.RemoveFromRolesAsync(user, roles);
+
+            if(!result.Succeeded)
+            {
+                ModelState.AddModelError("", "You cannot delete users with roles");
+                return View(model);
+            }
+
+            result = await _gestionUser.AddToRolesAsync(user, 
+                model.Where(x => x.IsSelect).Select(y => y.RoleName));
+
+            if(!result.Succeeded )
+            {
+                ModelState.AddModelError("", "you cannot add the selected user to the roles");
+                return View(model);
+            }
+
+            return RedirectToAction("EditUser", new {Id = Id});
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
+
+    
 }

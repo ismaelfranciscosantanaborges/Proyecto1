@@ -6,6 +6,7 @@ namespace ProyectoWeb.Interfaces
     public interface IPuestoTrabajo
     {
         List<PuestoTrabajo> dameTodoTrabajo();
+        List<PuestoTrabajo> getOfFilter(string cadena);
         PuestoTrabajo dameElTrabajo(int id);
 
         PuestoTrabajo nuevo(PuestoTrabajo puestoTrabajo);

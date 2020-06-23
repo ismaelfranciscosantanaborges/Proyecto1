@@ -13,7 +13,7 @@
     <div class="row mt-3">
         <div class="col">
             <form asp-controller="Home" asp-action="Edit" method="Post">
-                @* <div asp-validation-summary="All" class="text-danger"></div> *@
+                 <div asp-validation-summary="All" class="text-danger"></div> 
                 <input hidden asp-for="Id"/>
 
                 <div class="form-group row">
@@ -47,7 +47,20 @@
                     </div>
 
                 </div>
+                
+                <div class="form-group row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label asp-for="Correo">Email</label>
+                        <input type="text" asp-for="Correo" class="form-control" placeholder="Email">
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
 
+                    <div class="col-12 col-md-6 mb-3">
+                        <label asp-for="Correo">WebSite</label>
+                        <input type="text" asp-for="Url" class="form-control" placeholder="WebSite">
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+                </div>
 
                <div class="form-group row">
                         <div class="col-12 col-md-6 mb-3">
@@ -80,8 +93,8 @@
                     </div>
                     
                 </div>
-
-                <input type="submit" class="btn btn-secundary text-white btn-block mb-3 " value="DELETE " > 
+                
+                <input type="submit" class="btn btn-secundary text-white btn-block mb-3 " value="DELETE" > 
                 <input type="submit" class="btn btn-success btn-block mb-3" value="UPDATE">
             </form>
         </div>

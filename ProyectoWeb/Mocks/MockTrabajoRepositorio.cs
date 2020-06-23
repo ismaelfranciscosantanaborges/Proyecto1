@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ProyectoWeb.Data;
 using ProyectoWeb.Interfaces;
 using ProyectoWeb.Models;
@@ -35,8 +36,11 @@ namespace ProyectoWeb.Mocks
         }
 
         public List<PuestoTrabajo> dameTodoTrabajo(){
-           
-            return _context.PuestoTrabajo.ToList();
+            
+            List<PuestoTrabajo> listPT = _context.PuestoTrabajo.ToList();
+            listPT.Reverse();
+
+            return listPT;
         }
 
         public PuestoTrabajo dameElTrabajo(int id){
@@ -44,6 +48,23 @@ namespace ProyectoWeb.Mocks
             return trabajo;
         }
 
+        public List<PuestoTrabajo> getOfFilter(string cadena)
+        {
+            List<PuestoTrabajo> listPT;
+            if(cadena != null)
+            {
+                listPT = _context.PuestoTrabajo.Where(x => x.Posicion.Contains(cadena)).ToList();
+                listPT.Reverse();
+            }else
+            {
+                listPT = dameTodoTrabajo();
+            }
+            
+                    // var query = from s in _context.PuestoTrabajo
+                    // where EF.Functions.Like(s.Categoria.ToString(), $"%{cadena}%")
+                    // select s;
+            return listPT;
+        }
         public PuestoTrabajo nuevo(PuestoTrabajo puestoTrabajo)
         {
             //puestoTrabajo.Id = _context.PuestoTrabajo.Max(x => x.Id) + 1;
@@ -58,7 +79,8 @@ namespace ProyectoWeb.Mocks
         public PuestoTrabajo borrar(int id)
         {
             PuestoTrabajo p = _context.PuestoTrabajo.Find(id);
-            if(p != null){
+            if(p != null)
+            {
                 _context.PuestoTrabajo.Remove(p);
                 _context.SaveChanges();
             }

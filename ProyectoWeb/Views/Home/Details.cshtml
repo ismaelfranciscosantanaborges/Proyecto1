@@ -16,12 +16,35 @@
                                     <small>@Model.PuestoTrabajo.FechaPublicacion</small>
                                 </div>
                                 <div class="row">
-                                    <div class="col-3 pl-4"><img class="ml-4" src="~/images/descarga .jpg"></div>
-                                    <div class="col-9 "><pre class=" font-weight-bold">@Model.PuestoTrabajo.Categoria             @Model.PuestoTrabajo.TipoEmpleado              @Model.PuestoTrabajo.Ubicacion</pre> </div>
+                                    
+                                    <div class="col-4 pl-3 mb-4"><img class="ml-4" src="~/images/descarga .jpg"></div>
+                                    <div class="col-8"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col"><pre class=" font-weight-bold " style="font-size:20px;">
+<b class="text-success">Category:</b>                  @Model.PuestoTrabajo.Categoria 
+<b class="text-success">Employee Type:</b>             @Model.PuestoTrabajo.TipoEmpleado
+<b class="text-success">Position:</b>                  @Model.PuestoTrabajo.Posicion
+<b class="text-success">Location:</b>                  @Model.PuestoTrabajo.Ubicacion
+<b class="text-success">Email:</b>                     @Model.PuestoTrabajo.Correo
+<b class="text-success">Web Side:</b>                  @Model.PuestoTrabajo.Url
+                                            </pre> 
+                                    </div>
+                                    
+                                            
                                 </div>
                                 <div class="row">
                                     <div class="col-12 my-3">
                                         <p>
+                                            <b class="text-success">Description:</b> <hr/>
+                                            El usuario puede introducir algunas palabras clave para refinar su búsqueda. Las
+                                            palabras clave pueden ser palabras se encuentra en los campos de la ubicación, la
+                                            posición, la categoría, y de la compañía.El usuario puede introducir algunas pala
+                                            bras clave para refinar su búsqueda. Laspalabras clave pueden ser palabras se enc
+                                            uentra en los campos de la ubicación, laposición, la categoría, y de la compañía
+                                        </p>
+                                        <p>
+                                            <b class="text-success">How to aply:</b> <hr/>
                                             El usuario puede introducir algunas palabras clave para refinar su búsqueda. Las
                                             palabras clave pueden ser palabras se encuentra en los campos de la ubicación, la
                                             posición, la categoría, y de la compañía.El usuario puede introducir algunas pala
@@ -29,9 +52,18 @@
                                             uentra en los campos de la ubicación, laposición, la categoría, y de la compañía
                                         </p>
                                         <ul class="responsive float-right ">
-                                            <li class="nav-item regist_log  px-4 py-2 mr-2" style="background-color:#53b427;">
-                                                <a style="text-decoration:none;color:black;" >APLY</a>
-                                            </li>
+                                            @if(User.IsInRole("Admin") || User.IsInRole("Poster"))
+                                            {
+                                                <li class="nav-item regist_log px-4 py-2" style="background-color:#53b427;">
+                                                    <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.PuestoTrabajo.Id">Edit</a>
+                                                </li>
+                                            }else
+                                            {
+                                                <li class="nav-item regist_log  px-4 py-2 mr-2" style="background-color:#53b427;">
+                                                    <a style="text-decoration:none;color:black;" >APLY</a>
+                                                </li>
+                                            }
+                                            
                                         </ul>
 
                                     </div>

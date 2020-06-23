@@ -1,4 +1,4 @@
-@model List<PuestoTrabajo>
+@model PuestoTrabajoModel
 @inject SignInManager<UserAplication> SignInManager
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,10 +9,18 @@
 
     <h2 class="mb-0 text-white">Your Future Start Here Know</h2>
     <h6 style="color: white; margin-Top: 0px;margin-bottom:30px; margin-left: 90px;">Search Millions Of Jobs For Free</h6>
-    <div class="py-1" style="border-radius: 50px;background-color:white;">
-        <input class="border-0 ml-1  " style="border-radius: 50px;" type="text" placeholder="Search Job by Location" value="" />
-        <button class="float-right border-0 bg-white mr-1" style="border-radius: 50px;"><i class="fa fa-search text-success bg-white "></i></button>
-    </div>
+    @* <div class="py-1" style="border-radius: 50px;background-color:white;"> *@
+        <form method="get" asp-controller="Home" asp-action="Index" >
+            @* <input class="border-0 ml-1  " style="border-radius: 50px;" type="text" placeholder="Search Job by Location" value="" />
+            <button asp-route-cadena="value" class="float-right border-0 bg-white mr-1" style="border-radius: 50px;"><i class="fa fa-search text-success bg-white "></i></button> *@
+            <div class="form-group">
+            @Html.TextBox("cadena", null, new { placeholder = "texto de búsqueda",
+                                    @class = "form-control" })
+                </div>
+            <button class="btn btn-primary" type="submit">Buscar</button>
+        </form>
+
+    @* </div> *@
 
 </div>
 
@@ -21,7 +29,7 @@
         <div class="col">
             <h1 class="text-center mb-4 text-black-50 text-monospacefont-weight-bold">The Most Resent Post</h1>
             <div class="list-group " style="background-color:#F9EBEA ;">
-                @{ foreach (var t in Model)
+                @{ foreach (var t in Model.listPT)
                     {
                         <div href="#" class="list-group-item list-group-item-action flex-column align-item-start mt-3 ">
                             <div class="d-flex w-100 justify-content-between align-item-center">
@@ -30,7 +38,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-3"><img src="~/images/descarga .jpg"></div>
-                                <div class="col-6 "><pre class="text-center">@t.Categoria              @t.Posicion             @t.TipoEmpleado.ToString() </pre> </div>
+                                <div class="col-6 "><pre class="text-center">@t.Categoria              @t.Posicion             @t.Ubicacion </pre> </div>
                                         <div class="col-3 px-1">
                                             <ul class="responsive float-right ">
                                                 <li class="nav-item regist_log  px-3 py-2 mr-2" style="background-color:lightgrey;">
@@ -38,9 +46,29 @@
                                                 </li>
                                                 @if(SignInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Poster")))
                                                 {
-                                                    <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
-                                                        <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
-                                                    </li>
+                                                    if(User.IsInRole("Poster") )
+                                                    {
+                                                       foreach (var item in Model.listUPT)
+                                                       {
+                                                           if(item.IdPuestoTrabajo == t.Id)
+                                                           {
+                                                                <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                                    <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                                                                </li>
+                                                           }
+                                                       }
+                                                        
+                                                    
+                                                        
+                                                    }
+
+                                                    if(User.IsInRole("Admin"))
+                                                    {
+                                                        <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                            <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                                                        </li>
+                                                    }
+                                                    
                                                 }else
                                                 {
                                                     <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">

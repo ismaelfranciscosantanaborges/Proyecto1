@@ -45,6 +45,7 @@ namespace ProyectoWeb
 
             services.AddTransient<IRegistosAlmacenado, MockRegistrosRepositorio>();
             services.AddTransient<IPuestoTrabajo, MockTrabajoRepositorio>();
+            services.AddTransient<IUserJob, MockUserJobRepositorio>();
 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
         }
