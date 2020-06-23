@@ -43,7 +43,7 @@ namespace ProyectoWeb.Controllers
             model.listPT = _listaPuestoTrabajo.getOfFilter(cadena);
             model.listUPT = _userJob.dameTodoUserJob(User.getUserId());
 
-            
+
             return View(model);
             //return View("~/MisVistas/Index.cshtml");
         }
@@ -139,6 +139,25 @@ namespace ProyectoWeb.Controllers
 
             return View(model);
 
+        }
+
+        [HttpPost]
+        [Route("Home/DeleteJob")]
+        public IActionResult DeleteJob(int id)
+        {
+            var job = _listaPuestoTrabajo.dameElTrabajo(id);
+
+            if(job == null)
+            {
+                ViewBag.Title = $"Job with Id = {id} not find";
+                return View("Error");
+            }else
+            {
+                var result = _listaPuestoTrabajo.borrar(id);
+                return RedirectToAction("Index", "Home");
+            }
+
+            
         }
 
 

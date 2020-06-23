@@ -93,11 +93,18 @@
                     </div>
                     
                 </div>
-                
-                <input type="submit" class="btn btn-secundary text-white btn-block mb-3 " value="DELETE" > 
                 <input type="submit" class="btn btn-success btn-block mb-3" value="UPDATE">
             </form>
+            <form method="post" asp-action="DeleteJob" asp-controller="Home" asp-route-id="@Model.Id">
+                <button type="submit" class="btn btn-danger" 
+                    onclick="return confirm('sure you want to delete the job')">
+                    Delete
+                </button> 
+            </form>
+
         </div>
 
     </div>
 </main>
+
+@**@
