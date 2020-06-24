@@ -20,10 +20,13 @@ namespace ProyectoWeb.Controllers
     {
         private readonly IRegistosAlmacenado _listaUsuario;
         private readonly IUserJob _userJob;
+        private readonly UserManager<UserAplication> _gestionUser;
 
         private readonly IPuestoTrabajo _listaPuestoTrabajo;
-        public HomeController(IPuestoTrabajo puestoTrabajo, IRegistosAlmacenado listaUsuario, IUserJob userJob)
+        public HomeController(IPuestoTrabajo puestoTrabajo, IRegistosAlmacenado listaUsuario,
+                              IUserJob userJob, UserManager<UserAplication> gestionUser)
         {
+            _gestionUser = gestionUser;
             _userJob = userJob;
 
             _listaUsuario = listaUsuario;
@@ -49,11 +52,29 @@ namespace ProyectoWeb.Controllers
         }
 
         [Route("Home/Details/{id?}")]
-        public ViewResult Details(int id)
+        public async Task<ViewResult> Details(int id)
         {
             DetallesView detalles = new DetallesView();
             //detalles.Usuario = _listaUsuario.dameDetallesUsuario(id??1);
             detalles.PuestoTrabajo = _listaPuestoTrabajo.dameElTrabajo(id);
+            detalles.ListUsuarioPT = _userJob.dameTodoUserJob();
+            var model = new List<string>();
+
+            foreach (var user in _gestionUser.Users)
+            {
+                var userRoleModel =  user.UserName;
+                foreach (var item in detalles.ListUsuarioPT)
+                {
+                    if(user.Id == item.IdUsuario && item.ParaAplicar == true)
+                    {
+                        model.Add(userRoleModel);
+                    }
+                }
+                
+            }
+
+            ////////////////////////////
+            detalles.Users = model;
             detalles.Titulo = "Aqui se mostrara los detalles del Usuario, con sus aptitudes";
 
             if (detalles.PuestoTrabajo == null)
@@ -99,7 +120,7 @@ namespace ProyectoWeb.Controllers
                 upt.ParaAplicar = false;
                 _userJob.nuevo(upt);
 
-               
+
                 return RedirectToAction("details", new { id = p.Id });
             }
             return View();
@@ -147,17 +168,41 @@ namespace ProyectoWeb.Controllers
         {
             var job = _listaPuestoTrabajo.dameElTrabajo(id);
 
-            if(job == null)
+            if (job == null)
             {
                 ViewBag.Title = $"Job with Id = {id} not find";
                 return View("Error");
-            }else
+            }
+            else
             {
                 var result = _listaPuestoTrabajo.borrar(id);
                 return RedirectToAction("Index", "Home");
             }
 
-            
+
+        }
+
+        [HttpPost]
+        [Route("Home/Aply")]
+        public IActionResult Aply(int id)
+        {
+            var job = _listaPuestoTrabajo.dameElTrabajo(id);
+
+            if (job == null)
+            {
+                ViewBag.Title = $"Job with id = {id} not find";
+                return View("Error");
+            }
+            else
+            {
+                UsuarioPuestoTrabajo upt = new UsuarioPuestoTrabajo();
+                upt.IdPuestoTrabajo = job.Id;
+                upt.IdUsuario = User.getUserId();
+                upt.ParaAplicar = true;
+
+                _userJob.nuevo(upt);
+                return RedirectToAction("Index", "Home");
+            }
         }
 
 
@@ -165,7 +210,7 @@ namespace ProyectoWeb.Controllers
         [Route("Home/perfilempleado")]
         [Route("Home/perfilempleado/{id}")]
         [HttpPost]
-        public ViewResult perfilempleado(int? id)
+        public ViewResult perfilempleado()
         {
             return View();
         }
@@ -182,6 +227,6 @@ namespace ProyectoWeb.Controllers
         }
 
 
-      
+
     }
 }

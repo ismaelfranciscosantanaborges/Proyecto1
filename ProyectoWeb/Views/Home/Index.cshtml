@@ -71,9 +71,27 @@
                                                     
                                                 }else
                                                 {
-                                                    <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
-                                                        <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="Edit" asp-route-id="@t.Id">Aply</a>
-                                                    </li>
+                                                    foreach (var item in Model.listUPT)
+                                                    {
+                                                        @* <li class="nav-item regist_log  px-4 py-2" style="background-color:#53b427;">
+                                                            <a style="text-decoration:none;color:black;" asp-controller="Home" asp-action="" asp-route-id="@t.Id">Aply</a>
+                                                        </li> *@
+                                                        if(User.getUserId() == item.IdUsuario && t.Id == item.IdPuestoTrabajo)
+                                                        {
+                                                            
+                                                        }
+                                                        else
+                                                        {
+                                                            <form method="post" asp-action="Aply" asp-controller="Home" asp-route-id="@t.Id">
+                                                            <button type="submit" class="" 
+                                                                onclick="return confirm('sure you want to Aply the job')">
+                                                                Aply
+                                                                </button> 
+                                                            </form>
+                                                        }
+                                                        
+                                                    }
+                                                    
                                                 }
 
                                             </ul>

@@ -9,6 +9,7 @@ namespace ProyectoWeb.Interfaces
         List<UsuarioPuestoTrabajo> dameUserJob();
         UsuarioPuestoTrabajo dameElUserJob(string id);
         List<UsuarioPuestoTrabajo> dameTodoUserJob(string id);
+        List<UsuarioPuestoTrabajo> dameTodoUserJob();
 
         UsuarioPuestoTrabajo nuevo(UsuarioPuestoTrabajo userJob);
 

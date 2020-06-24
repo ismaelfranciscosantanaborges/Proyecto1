@@ -31,6 +31,11 @@ namespace ProyectoWeb.Mocks
             return _context.UsuarioPuestoTrabajo.Where(x => x.IdUsuario == id).ToList();
         }
 
+        public List<UsuarioPuestoTrabajo> dameTodoUserJob()
+        {
+            return _context.UsuarioPuestoTrabajo.ToList();
+        }
+
         public List<UsuarioPuestoTrabajo> dameUserJob()
         {
             throw new NotImplementedException();
